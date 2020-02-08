@@ -4,6 +4,9 @@ import del from "del";
 import ws from "gulp-webserver";
 import bro from "gulp-bro";
 import babelify from "babelify";
+import sass from "gulp-sass";
+import autoP from "gulp-autoprefixer";
+import miniCSS from "gulp-csso";
 
 const routes = {
   pug: {
@@ -15,6 +18,11 @@ const routes = {
     watch: "src/js/*.js",
     src: "src/js/main.js",
     dest: "build/js",
+  },
+  styles: {
+    watch: "src/scss/*.scss",
+    src: "src/scss/style.scss",
+    dest: "build/css",
   },
 };
 
@@ -38,8 +46,6 @@ const webserver = () => {
   );
 };
 
-// js...
-
 const watch = () => {
   gulp.watch(routes.pug.watch, pug);
   gulp.watch(routes.js.watch, js);
@@ -59,9 +65,20 @@ const js = () => {
     .pipe(gulp.dest(routes.js.dest));
 };
 
+const styles = () => {
+  gulp
+    .src(routes.styles.src)
+    .pipe(sass().on("error", sass.logError))
+    .pipe(
+      autoP({})
+    )
+    .pipe(miniCSS())
+    .pipe(gulp.dest(routes.styles.dest))
+};
+
 // render
 const prepare = gulp.series(clean);
-const assets = gulp.series([pug, js]);
+const assets = gulp.series([pug, js, styles]);
 const live = gulp.parallel([webserver, watch]);
 
 export const dev = gulp.series([prepare, assets, live]);
