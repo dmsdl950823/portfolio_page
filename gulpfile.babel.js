@@ -8,6 +8,8 @@ import sass from "gulp-sass";
 import autoP from "gulp-autoprefixer";
 import miniCSS from "gulp-csso";
 
+sass.compiler = require('node-sass');
+
 const routes = {
   pug: {
     watch: "src/**/*.pug",
@@ -20,10 +22,10 @@ const routes = {
     dest: "build/js",
   },
   styles: {
-    watch: "src/scss/*.scss",
-    src: "src/scss/style.scss",
-    dest: "build/css",
-  },
+      watch: "src/**/*.scss",
+      src: "src/scss/style.scss",
+      dest: "build/css" ,
+  }
 };
 
 const pug = () => {
@@ -47,8 +49,23 @@ const webserver = () => {
 };
 
 const watch = () => {
+    // console.log(toString(gulp))
   gulp.watch(routes.pug.watch, pug);
   gulp.watch(routes.js.watch, js);
+  gulp.watch(routes.styles.watch, styles);
+};
+
+const styles = () => {
+    // console.log(toString(sass.logError()));
+  return gulp
+      .src(routes.styles.src)
+      .pipe(sass())
+      // .pipe(sass().on('error', sass.logError()))
+      .pipe(
+          autoP({})
+      )
+      .pipe(miniCSS())
+      .pipe(gulp.dest(routes.styles.dest))
 };
 
 const js = () => {
@@ -65,20 +82,9 @@ const js = () => {
     .pipe(gulp.dest(routes.js.dest));
 };
 
-const styles = () => {
-  gulp
-    .src(routes.styles.src)
-    .pipe(sass().on("error", sass.logError))
-    .pipe(
-      autoP({})
-    )
-    .pipe(miniCSS())
-    .pipe(gulp.dest(routes.styles.dest))
-};
-
 // render
 const prepare = gulp.series(clean);
-const assets = gulp.series([pug, js, styles]);
-const live = gulp.parallel([webserver, watch]);
+const assets = gulp.series([pug, styles, js]);
+const live = gulp.parallel([watch, webserver]);
 
 export const dev = gulp.series([prepare, assets, live]);
