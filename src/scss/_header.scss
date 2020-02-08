@@ -1,0 +1,19 @@
+
+.Three_background {
+  quotes: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.head_gnb {
+  li {
+    float: left;
+  }
+
+  li:last-child{
+    float: right;
+  }
+}
+
