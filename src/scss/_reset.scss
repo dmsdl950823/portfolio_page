@@ -51,6 +51,14 @@ table {
 	text-indent: -9999px;
 }
 
+.flt_lft {
+	float: left;
+}
+
+.flt_rgt {
+	float: right;
+}
+
 .cf:after {
 	content: '';
 	clear: both;
