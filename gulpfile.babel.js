@@ -42,7 +42,7 @@ const webserver = () => {
     ws({
       livereload: true,
       open: true,
-      host: "192.168.219.109",
+      host: "192.168.219.105",
       port: 8000,
     })
   );
