@@ -36,13 +36,22 @@ blockquote, q {
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
-	content: none;
 }
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
+a {
+	&:hover,
+	&:link,
+	&:focus,
+	&:visited,
+	&:active {
+		text-decoration: none;
+		color: #333;
+	}
+}
 
 ._skip {
 	font-size: 0;
@@ -51,11 +60,13 @@ table {
 	text-indent: -9999px;
 }
 
-.flt_lft {
+$float: 'flt';
+
+.#{$float}_lft {
 	float: left;
 }
 
-.flt_rgt {
+.#{$float}_rgt {
 	float: right;
 }
 

@@ -1,7 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 @import "_reset";
 @import "_basic";
 @import "_header";
+@import "_works";
+@import "_about";
+@import "_footer";
 
-body {
 
+$web1366_w: 1920px;
+$ipad_pro_w: 1366px;
+$ipad_w: 1024px;
+$ipad2_w: 768px;
+$phone_w: 375px;
+
+
+@media (max-width: $web1366_w) {
+  body{
+  background: #A6FFFD
+  }
+}
+
+@media (max-width: $ipad_pro_w) {
+  body {
+    background: #97E8D0
+  }
+}
+
+@media (max-width: $ipad_w) {
+  body {
+    background: #B3FFD2
+  }
+}
+
+@media (max-width: $ipad2_w) {
+  body {
+    background: #97E8A2
+  }
+}
+
+@media (max-width: $phone_w) {
+  body {
+    background: pink
+  }
 }

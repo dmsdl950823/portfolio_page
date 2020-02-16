@@ -1,23 +1,27 @@
-div(class="blue")
-    |Page works
-    ul
+div(class="blue workdiv cf")
+    h3(class="worksTit")
+        p Work
+        p web
+    ul(class="workLists")
         li 
-            a(href="/") 
-                strong Responsive Web
-                p this is about... blah blah
-                
-        li 
-            a(href="/") 
-                strong Mobile
-                p this is about... blah blah
-        li 
-            a(href="/") 
-                strong HTML 5
-                p this is about... blah blah
-        li 
-            a(href="/") 
-                strong HTML 5
-                p this is about... blah blah
+            a(href="/" class="imgAnchor")
+                div(class="imageSect")
+            div(class="work_cont")
+                a(href="/")
+                    strong(class="work_title") Responsive Web
+                    p this is about... blah blah
+        li
+            div(class="work_cont")
+                a(href="/")
+                    strong(class="work_title") Mobile
+                    p this is about... blah blah
+            a(href="/" class="imgAnchor")
+                div(class="imageSect")
+        //li
+        //    a(href="/")
+        //        div(class="imageSect")
+        //        strong(class="work_title") HTML 5
+        //        p this is about... blah blah
     
-    div 
-        a(href="/") SEE MORE
+    div(class="viewMore")
+        a(href="/" class="viewButton") VIEW MORE

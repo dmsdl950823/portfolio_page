@@ -8,6 +8,7 @@ import sass from "gulp-sass";
 import autoP from "gulp-autoprefixer";
 import miniCSS from "gulp-csso";
 import image from "gulp-image";
+import gulpFont from 'gulp-font';
 
 sass.compiler = require('node-sass');
 
@@ -30,6 +31,10 @@ const routes = {
   img: {
     src: "src/images/*",
     dest: "build/images"
+  },
+  fonts: {
+    src: "src/fonts/*.ttf",
+    dest: "build/font"
   }
 };
 
@@ -51,6 +56,20 @@ const webserver = () => {
       port: 8000,
     })
   );
+};
+
+const fonts = () => {
+  return gulp
+      .src(routes.fonts.src, {read: false})
+      .pipe(gulpFont({
+          ext: 'font.ttf',
+          fontface: routes.fonts.src,
+          // relative: routes.fonts.src,
+          dest: routes.fonts.dest,
+          // embed: ['woff'],
+          // collate: false
+      }))
+      .pipe(gulp.dest(routes.fonts.dest))
 };
 
 const images = () => {

@@ -1,8 +1,59 @@
 .red {
   border: 1px solid red;
-  margin-bottom: 10px;
 }
 
 .blue{
   border: 1px solid blue;
+}
+
+@font-face {
+    font-family:'Athena-Regular';
+    font-weight:400;
+    src: url('../fonts/Athena-Regular (PERSONAL USE ONLY).ttf');
+    //src: url('font/NanumGothic.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/Athena-Regular (PERSONAL USE ONLY).ttf') format('woff'),
+		 url('../fonts/Athena-Regular (PERSONAL USE ONLY).ttf') format('truetype');
+}
+
+body {
+  font-family: Athena-Regular;
+}
+
+body::-moz-selection {
+  background: #0006ff;
+  color: #fff;
+}
+::selection {
+  background: #0006ff;
+  color: #fff;
+}
+
+#wrapper {
+  margin:0 auto;
+  max-width: 1920px;
+  overflow: hidden;
+}
+
+//$sectionWord : "section";
+//
+//#{$sectionWord} {
+//  width: 100%;
+//  height: 100vh;
+//}
+//#{$sectionWord}#works {
+//  height: auto;
+//}
+
+.pageSection {
+  width: 100%;
+  font-size: 10em;
+  color: #f2f2f2;
+}
+
+.no-drag {
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select:none;
 }
