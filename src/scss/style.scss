@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
 
 @import "_reset";
 @import "_basic";
@@ -17,7 +17,7 @@ $phone_w: 375px;
 
 @media (max-width: $web1366_w) {
   body{
-  background: #A6FFFD
+  background: #d4ebdf
   }
 }
 

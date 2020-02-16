@@ -12,47 +12,56 @@
 }
 
 header {
-  max-width: 1824px;
-  margin: 0 auto;
-  padding-top: 40px;
-
   h3 {
-    width: 7.5%;
+    width: 6.77%;
     border: 1px solid orange;
+    margin-left: 2.5%;
     margin-right: 1.25%
   }
 }
 
 .gubWrap {
-  width: 82.27%;
+  width: 78.95%;
 
   .head_gnb {
     width: 412px;
     margin: 0 auto;
 
     li {
+      position: relative;
       float: left;
       font-size: 40px;
       height: 66px;
       line-height: 66px;
       width: 206px;
       text-align: center;
+      transition: 0.2s ease-in;
 
-      //:after{
-      //  content: '';
-      //  position: absolute;
-      //  width: 5px;
-      //  height:  5px;
-      //  background: red;
-      //}
+      &.on {
+        &:after{
+          content: '';
+          position: absolute;
+          width: 10px;
+          height:  10px;
+          background: #0006ff;
+          border-radius: 50%;
+          bottom: -5px;
+          left: 50%;
+          margin-left: -5px;
+        }
+      }
     }
   }
 }
 
 .lan {
-    margin-left: 1.25%;
-    width: 7.5%;
-  border: 1px solid orange;
+  margin-left: 1.25%;
+  margin-right: 2.5%;
+  width: 6.67%;
+  height: 40px;
+  background: #eaf6ff;
+  border-radius: 20px;
+
   }
 
 
