@@ -1,0 +1,50 @@
+.footer {
+  width: 100%;
+  background: #0006ff;
+}
+
+footer {
+  height: 373px;
+  max-width: 1920px;
+  margin: 0 auto;
+  color: #FFF;
+
+  > div {
+    width: 284px;
+    margin-right: 24px;
+    height: 100%;
+    float: left;
+
+    h5 {
+      font-size: 40px;
+    }
+
+  @mixin block() {
+    display: block;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+    p {
+      > strong {
+        display: block;
+        font-size: 25px;
+        color: #a3bdff;
+      }
+
+      > span {
+        @include block();
+      }
+
+    }
+
+    a {
+      color: #FFF !important;
+      @include block();
+    }
+  }
+}
+
+
+
+

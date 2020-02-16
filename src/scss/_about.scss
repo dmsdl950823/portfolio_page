@@ -1,0 +1,25 @@
+.profile_img {
+  background: #f2f2f2;
+  height: 747px;
+  width: 779px
+}
+
+.profile_name {
+  width: 486px;
+  color: #0006ff;
+
+  @mixin profile($size) {
+    //width: 100%;
+    display: block;
+    font-size: $size;
+  }
+
+  strong {
+    @include profile(80px);
+    width: 500px;
+  }
+  small {
+    @include profile(40px);
+
+  }
+}

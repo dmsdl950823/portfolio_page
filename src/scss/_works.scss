@@ -1,0 +1,80 @@
+h3.worksTit {
+  color: #0006ff;
+  font-size: 70px;
+  width: 100%;
+  margin-top: 60px;
+
+  p {
+    text-align: right;
+    padding-right: 154px;
+  }
+}
+
+.workdiv {
+}
+
+.work_title {
+  font-size: 40px;
+  color:#0006ff;
+}
+
+.viewMore{
+  background: #0006ff;
+  width: 438px;
+  height: 95px;
+  border-radius: 12px;
+  margin: 0 auto;
+
+  .viewButton {
+    display: block;
+    line-height: 95px;
+    color: #FFF;
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+
+.workLists {
+  padding: 0 154px;
+
+  li {
+    margin-bottom: 130px;
+
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    > a {
+      float: left;
+    }
+
+    > .work_cont {
+      float: left;
+      margin-top: 50px;
+      margin-left: 24px;
+
+      p {
+        margin-top: 28px;
+        font-size: 20px;
+        width: 438px;
+        text-align: justify;
+      }
+    }
+  }
+
+
+}
+
+.imgAnchor {
+  display: block;
+  width: 900px;
+  height: 585px;
+}
+
+.imageSect {
+  @extend .imgAnchor;
+  background: #f2f2f2;
+}
