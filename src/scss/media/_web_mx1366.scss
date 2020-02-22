@@ -1,0 +1,47 @@
+
+// 1024 ~ 1366px
+@media (max-width: 1366px) {
+  body {
+    background: pink
+  }
+
+  // header
+  header {
+    h3 {
+      width: 6.73%;
+      margin-left: 2.05%;
+      margin-right: 1.36%
+    }
+  }
+
+  .gubWrap {
+    width: 79.6%;
+
+    .head_gnb {
+      width: 318px;
+
+      li {
+        font-size: 25px;
+        width: 152px;
+        height: 50px;
+        line-height: 50px;
+        margin-top: 8px;
+      }
+
+      &.on {
+        &:after{
+          width: 8px;
+          height:  8px;
+          bottom: -5px;
+        }
+      }
+
+      .lan {
+        margin-left: 1.36%;
+        margin-right: 2.05%;
+        width: 6.73%;
+      }
+    }
+  }
+
+}
