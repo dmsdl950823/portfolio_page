@@ -8,39 +8,9 @@
 @import "_footer";
 
 
-$web1366_w: 1920px;
-$ipad_pro_w: 1366px;
-$ipad_w: 1024px;
-$ipad2_w: 768px;
-$phone_w: 375px;
+@import "_web1366";
+@import "_web1024";
+//@import "_ipad768";
+//@import "_ipadPro1024";
+//@import "_phone375";
 
-
-@media (max-width: $web1366_w) {
-  body{
-  background: #d4ebdf
-  }
-}
-
-@media (max-width: $ipad_pro_w) {
-  body {
-    background: #97E8D0
-  }
-}
-
-@media (max-width: $ipad_w) {
-  body {
-    background: #B3FFD2
-  }
-}
-
-@media (max-width: $ipad2_w) {
-  body {
-    background: #97E8A2
-  }
-}
-
-@media (max-width: $phone_w) {
-  body {
-    background: pink
-  }
-}

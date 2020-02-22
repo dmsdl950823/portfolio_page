@@ -37,10 +37,12 @@ h3.worksTit {
 
 
 .workLists {
-  padding: 0 154px;
+
 
   li {
+    margin: 0 10.52%;
     margin-bottom: 130px;
+    width: 78.96%;
 
     &:after {
       content: '';
@@ -54,8 +56,15 @@ h3.worksTit {
 
     > .work_cont {
       float: left;
-      margin-top: 50px;
-      margin-left: 24px;
+      position: relative;
+      width: 39.05%;
+      height: 585px;
+
+      > a {
+        position: absolute;
+        display: block;
+        bottom: 24px;
+      }
 
       p {
         margin-top: 28px;
@@ -65,17 +74,45 @@ h3.worksTit {
       }
     }
   }
+}
 
+@for $i from 1 through 2 {
+  @if ($i % 2 == 0) {  // even
+    .workLists li:nth-of-type(#{$i}){
+      background: red;
+
+      > .imgAnchor {
+        float: right;
+      }
+
+      > .work_cont {
+        a {
+          right: 24px;
+          text-align: right;
+        }
+
+        p {
+          text-align: right;
+        }
+      }
+    }
+  }
+  @else { // odd
+    .workLists li:nth-of-type(#{$i}){
+      background: yellow;
+
+      > .work_cont a {
+        left: 24px;
+      }
+    }
+  }
 
 }
+
 
 .imgAnchor {
   display: block;
-  width: 900px;
+  width: 59.366%;
   height: 585px;
-}
-
-.imageSect {
-  @extend .imgAnchor;
   background: #f2f2f2;
 }

@@ -9,6 +9,7 @@ import autoP from "gulp-autoprefixer";
 import miniCSS from "gulp-csso";
 import image from "gulp-image";
 import gulpFont from 'gulp-font';
+import include from 'gulp-include';
 
 sass.compiler = require('node-sass');
 
@@ -23,6 +24,10 @@ const routes = {
     src: "src/js/main.js",
     dest: "build/js",
   },
+    anime: {
+      src: "src/js/animejs/lib/anime.min.js",
+        dest: "build/js/animejs/lib"
+    },
   styles: {
       watch: "src/**/*.scss",
       src: "src/scss/style.scss",
@@ -52,7 +57,7 @@ const webserver = () => {
     ws({
       livereload: true,
       open: true,
-      host: "192.168.219.105",
+      host: "192.168.219.104",
       port: 8000,
     })
   );
@@ -100,6 +105,15 @@ const styles = () => {
       )
       .pipe(miniCSS())
       .pipe(gulp.dest(routes.styles.dest))
+};
+
+// do not use
+const anime = () => {
+  return gulp
+      .src(routes.anime.src)
+      .pipe(include())
+      .on('error', console.log)
+      .pipe(gulp.dest(routes.anime.dest))
 };
 
 const js = () => {
