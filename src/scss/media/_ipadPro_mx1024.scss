@@ -1,5 +1,195 @@
+
+// 768 ~ 1024px
 @media (max-width: 1024px) {
   body {
-    background: #B3FFD2
+    background: lightgoldenrodyellow;
   }
+
+  $side: 2.34%;
+  $gutt: 1.56%;
+  $gird: 6.51%;
+  $imgHeight: 364px;
+  $tit_width: 300px;
+
+  header {
+    h3 {
+      width: $gird;
+      margin-left: $side;
+      margin-right: $gutt;
+    }
+  }
+
+  .gubWrap {
+    width: 79.16%;
+
+    .head_gnb {
+      width: 360px;
+
+      li {
+        font-size: 25px;
+        width: 174px;
+      }
+    }
+  }
+
+  .lan {
+    margin-left: $gutt;
+    width: $gird
+  }
+
+  // work
+  h3.worksTit {
+    font-size: 40px;
+
+    p {
+      padding-right: $side;
+    }
+  }
+
+  .workdiv {
+    margin-bottom: 50px;
+  }
+
+  .work_title {
+    font-size: 32px;
+    width: $tit_width;
+  }
+
+  .viewMore{
+    width: 298px;
+    height: 65px;
+
+    .viewButton {
+      line-height: 65px;
+      font-size: 28px;
+    }
+  }
+
+
+
+
+  .workLists {
+    li {
+      margin: 0 $side;
+      margin-bottom: 50px;
+      width: 95.32%;
+
+      > .work_cont {
+        width:25.41%;
+        height: $imgHeight;
+
+        > a,
+        > p {
+          width: $tit_width;
+        }
+
+
+      }
+    }
+
+    .imgAnchor {
+      width: 74.59%;
+      height: $imgHeight;
+    }
+
+  }
+
+
+  @for $i from 1 through 2 {
+    @if ($i % 2 == 0) { // even
+      .workLists li:nth-of-type(#{$i}) {
+        > .work_cont {
+          a {
+            right: -150px;
+          }
+        }
+
+        .work_title {
+
+        }
+      }
+    } @else {  // odd
+      .workLists li:nth-of-type(#{$i}) {
+        > .work_cont a {
+          left: -150px;
+        }
+      }
+    }
+  }
+
+  // about
+  .profile {
+    margin: 0 auto;
+    width: 63.02%;
+  }
+
+  .profile_img {
+    width: 100%;
+    height: 480px;
+  }
+
+  .profile_name {
+    width: 360px;
+    right: -60px;
+
+    strong{
+      font-size: 60px;
+      width: 105%;
+    }
+    small {
+      font-size: 34px;
+      margin-top: 7px;
+    }
+  }
+
+  $mgLeft: 18.06%;
+  .desc {
+    margin-left: $mgLeft;
+    width: 47.60%;
+    //height: 150px;
+  }
+
+
+  // footer
+  footer {
+
+    > div {
+      width: 27.79%;
+      margin-right: $gutt;
+
+      &:first-child {
+        margin-left: $mgLeft
+      }
+
+      h5 {
+        font-size: 27px;
+        margin-bottom: 40px;
+      }
+
+      p {
+        > strong {
+          font-size: 23px;
+          margin-bottom: 15px;
+        }
+
+        > span {
+          font-size: 15px;
+          margin-bottom: 5px;
+
+          > a {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .sns p a{
+    font-size: 14px;
+  }
+
+
+
+
+  // media end
 }

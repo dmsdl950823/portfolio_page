@@ -41,13 +41,13 @@
           bottom: -5px;
         }
       }
-
-      .lan {
-        margin-left: $gutt;
-        margin-right: $mar;
-        width: 6.73%;
-      }
     }
+  }
+
+  .lan {
+    margin-left: $gutt;
+    //margin-right: $mar;
+    width: 6.73%;
   }
 
   // work
@@ -55,7 +55,6 @@
     font-size: 50px;
 
     p {
-      text-align: right;
       padding-right: $mar;
     }
   }

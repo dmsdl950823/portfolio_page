@@ -1,5 +1,48 @@
+
+// 375 ~ 768px
 @media (max-width: 768px) {
   body {
     background: #97E8A2
+  }
+
+  $gutt: 1.56%;
+  $mgLeft: 18.06%;
+
+  // footer
+  footer {
+
+    > div {
+      width: 27.79%;
+      margin-right: $gutt;
+
+      &:first-child {
+        margin-left: $mgLeft
+      }
+
+      h5 {
+        font-size: 25px;
+        margin-bottom: 40px;
+      }
+
+      p {
+        > strong {
+          font-size: 17px;
+          margin-bottom: 15px;
+        }
+
+        > span {
+          font-size: 12px;
+          margin-bottom: 5px;
+
+          > a {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .sns p a{
+    font-size: 12px;
   }
 }
