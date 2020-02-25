@@ -3,17 +3,162 @@
 @media (max-width: 375px) {
 
   body {
-    background: #eaf6ff;
+    background: #12846e;
   }
 
   $mar: 3.46%;
   $gutt: 2.66%;
   $grid : 21.6%;
 
+  // header
+// 30px;
+  header {
+  h3 {
+    width: $grid;
+    margin-left: $mar;
+    margin-right: $gutt;
+    height: 30px;
+  }
+}
+
+  .gubWrap {
+  width: 45.6%;
+
+    .head_gnb {
+      width: 171px;
+      margin: 0 auto;
+
+      li {
+        font-size: 15px;
+        //height: 66px;
+        //line-height: 66px;
+        width: 81px;
+
+        &.on {
+          &:after{
+            width: 6px;
+            height:  6px;
+            //bottom: -5px;
+            //left: 50%;
+            //margin-left: -5px;
+          }
+        }
+      }
+    }
+  }
+
+  .lan {
+    margin-left: $gutt;
+    //margin-right: $mar;
+    width: 5.33%;
+    height: 20px;
+    background: #0006ff;
+  }
 
 
+  .top {
+    width: 30px;
+    height: 30px;
+    bottom: 20px;
+    left: 20px;
 
+    span {
+      line-height: 30px;
+      font-size: 13px;
+    }
+  }
 
+  // works
+  h3.worksTit {
+    font-size: 25px;
+    //margin-top: 60px;
+
+    p {
+      padding-right: $mar;
+    }
+  }
+
+  .work_title {
+    font-size: 20px;
+  }
+
+  .workLists {
+    li {
+      margin: 0 $mar;
+      margin-bottom: 50px;
+      width: 93.08%;
+
+      > .work_cont {
+        p {
+          display: none;
+        }
+      }
+    }
+
+    .imgAnchor {
+      width: 100%;
+    }
+  }
+
+  // about
+  .profile {
+    width: 93.08%;
+  }
+
+  .profile_img {
+    height: 350px;
+  }
+
+  .profile_name {
+    width: 90%;
+    right: 0;
+    bottom: -48px;
+    text-align: right;
+
+    strong{
+      font-size: 40px;
+      width: 100%;
+    }
+    small {
+      font-size: 29px;
+      margin-top: 3px;
+    }
+  }
+
+  .desc {
+    margin-left: $mar;
+    width: 80%;
+
+    p {
+      font-size: 13px;
+      width: 85%;
+
+      &.Intro {
+        font-size: 28px;
+        //margin-bottom: 20px;
+      }
+    }
+  }
+
+  // footer
+  footer {
+  height: 250px;
+  padding-top: 60px;
+
+  > div {
+    width: 45.3%;
+    margin-right: $gutt;
+
+    &:first-child {
+      margin-left: $mar;
+    }
+
+    h5 {
+      //font-size: 40px;
+      margin-bottom: 30px;
+    }
+  }
+}
 
 
   // media end
