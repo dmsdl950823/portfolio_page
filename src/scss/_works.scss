@@ -36,10 +36,9 @@ h3.worksTit {
   }
 }
 
+$roboto : "'Roboto', sans-serif";
 
 .workLists {
-
-
   li {
     margin: 0 10.52%;
     margin-bottom: 130px;
@@ -72,10 +71,13 @@ h3.worksTit {
         font-size: 20px;
         width: 438px;
         text-align: justify;
+        font-family: $roboto;
       }
     }
   }
 }
+
+
 
 @for $i from 1 through 2 {
   @if ($i % 2 == 0) {  // even

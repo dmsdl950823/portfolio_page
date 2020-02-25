@@ -5,18 +5,99 @@
     background: #97E8A2
   }
 
+  $mar: 2.34%;
   $gutt: 1.56%;
-  $mgLeft: 18.06%;
+  $grid: 6.51%;
 
+  // header
+
+  header {
+    h3 {
+      width: $grid;
+      margin-left: $mar;
+      margin-right: $gutt;
+    }
+  }
+
+  h3.worksTit {
+    //font-size: 40px;
+
+    p {
+      //padding-right: $side;
+    }
+  }
+  .work_title {
+    font-size: 32px;
+    width: 0;
+  }
+
+
+
+  $tit_width: 230px;
+  .workLists {
+    li {
+      margin: 0 $mar;
+      margin-bottom: 50px;
+      width: 95.32%;
+
+      > .work_cont {
+        width: 0;
+
+        > a,
+        > p {
+          width: 0;
+        }
+      }
+    }
+
+    .imgAnchor {
+      width: 100%;
+    }
+
+  }
+
+  @for $i from 1 through 2 {
+    @if ($i % 2 == 0) { // even
+      .workLists li:nth-of-type(#{$i}) {
+        > .work_cont {
+          a {
+            left: 0;
+          }
+        }
+
+        .work_title, p {
+            width: 0
+        }
+      }
+    } @else {  // odd
+      .workLists li:nth-of-type(#{$i}) {
+        > .work_cont a {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  // about
+  .profile {
+    width: 70%;
+  }
+
+  .desc {
+    margin-left: 14.6%
+  }
+
+  $mgLeft: 18.06%;
   // footer
   footer {
+    height: 300px;
 
     > div {
       width: 27.79%;
       margin-right: $gutt;
 
       &:first-child {
-        margin-left: $mgLeft
+        margin-left: 14.6%;
       }
 
       h5 {
