@@ -82,7 +82,7 @@ $roboto : "'Roboto', sans-serif";
 @for $i from 1 through 2 {
   @if ($i % 2 == 0) {  // even
     .workLists li:nth-of-type(#{$i}){
-      background: red;
+      //background: red;
 
       > .imgAnchor {
         float: right;
@@ -102,7 +102,7 @@ $roboto : "'Roboto', sans-serif";
   }
   @else { // odd
     .workLists li:nth-of-type(#{$i}){
-      background: yellow;
+      //background: yellow;
 
       > .work_cont a {
         left: 24px;
