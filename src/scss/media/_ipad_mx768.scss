@@ -28,12 +28,12 @@
   }
   .work_title {
     font-size: 32px;
-    width: 0;
+    //width: 0;
   }
 
 
 
-  $tit_width: 230px;
+  //$tit_width: 230px;
   .workLists {
     li {
       margin: 0 $mar;
@@ -41,8 +41,7 @@
       width: 95.32%;
 
       > .work_cont {
-        width: 0;
-
+          width: 0;
         > a,
         > p {
           width: 0;
@@ -61,18 +60,26 @@
       .workLists li:nth-of-type(#{$i}) {
         > .work_cont {
           a {
+            border: 1px solid pink;
             left: 0;
           }
         }
 
         .work_title, p {
-            width: 0
+          width: 200px;
+          border: 1px solid yellow;
         }
       }
     } @else {  // odd
       .workLists li:nth-of-type(#{$i}) {
         > .work_cont a {
-          left: 0;
+          left: -200px;
+          border: 1px solid olivedrab;
+        }
+
+        .work_title {
+          width: 200px;
+          border: 1px solid blue;
         }
       }
     }
