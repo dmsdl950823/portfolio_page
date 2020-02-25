@@ -24,14 +24,18 @@ const routes = {
     src: "src/js/main.js",
     dest: "build/js",
   },
-    anime: {
-      src: "src/js/animejs/lib/anime.min.js",
-        dest: "build/js/animejs/lib"
-    },
+  three: {
+    src: "src/js/lib/*.js",
+    dest: "build/js/lib",
+  },
+  anime: {
+    src: "src/js/animejs/lib/anime.min.js",
+    dest: "build/js/animejs/lib"
+  },
   styles: {
-      watch: "src/**/*.scss",
-      src: "src/scss/style.scss",
-      dest: "build/css" ,
+    watch: "src/**/*.scss",
+    src: "src/scss/style.scss",
+    dest: "build/css" ,
   },
   img: {
     src: "src/images/*",
@@ -128,6 +132,14 @@ const js = () => {
       })
     )
     .pipe(gulp.dest(routes.js.dest));
+};
+
+const threeModule = () => {
+  return gulp
+      .src(routes.three.src)
+      .pipe(include())
+      .on('error', console.log)
+      .pipe(gulp.dest(routes.three.dest))
 };
 
 const watch = () => {
