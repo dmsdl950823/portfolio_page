@@ -1,17 +1,6 @@
 import anime from './animejs/lib/anime.es.js';
 
 
-function addEvent(evnt, elem, func) {
-   if (elem.addEventListener)  // W3C DOM
-      elem.addEventListener(evnt, func, false);
-   else if (elem.attachEvent) { // IE DOM
-      elem.attachEvent("on"+evnt, func);
-   }
-}
-
-
-
-
 // elements
 const header = document.getElementById('header');
 const work_sect = document.getElementById('works');
@@ -54,9 +43,10 @@ const workAnimationGenerator = function(select, child1, Boolimg, side) {
         animate = {
             targets: targetGenerator(select, child1, Boolimg),
             translateY: -124,
-            delay: 300,
-            duration: 700,
-            opacity: 1
+            // delay: 500,
+            duration: 300,
+            opacity: 1,
+            easing: 'easeOutBack',
         }
     }
     return animate;
@@ -86,72 +76,85 @@ const workoffsets_math2 = (workoffsets_3 - workoffsets_2) / 2 + workoffsets_2;
 const workoffsets_math3 = (aboutoffsets - workoffsets_3) + ( aboutoffsets / 2 );
 
 
+function scrollAction() {
+
+    let myscroll = document.documentElement.scrollTop;
+    let myscroll_m = Math.floor(myscroll);
+
+    console.log( 'my scroll ' + myscroll_m);
+
+    // Animation for 'Workworkwork...'
+    if ( myscroll_m >= wk_offset / 2 &&
+         myscroll_m < workoffsets[0]) {  // => Start animating from header / 2
+        anime({
+            targets: '.workback',
+            translateX: myscroll_m
+        });
+    }
+    // header end
+
+    // work 1 start
+    if ( myscroll_m >= workoffsets[0] &&        // Start work1 ~ 1/2
+         myscroll_m < workoffsets_2 / 2 ) {
+        anime(workAnimationGenerator(0, 0, true, 0));  // image
+        anime(workAnimationGenerator(0, 0, false, 3));  // work_titles
+    }
+    else if (myscroll_m >= workoffsets_2 / 2 &&  // start work 1/2 ~ 2
+             myscroll_m < workoffsets_2) {
+        anime(workAnimationGenerator(0, 1, true, 1));
+        anime(workAnimationGenerator(0, 1, false, 3));
+    }
+
+    // work 2 start
+    else if (myscroll_m >= workoffsets_2 &&
+            myscroll_m < workoffsets_math2) {    // Start work2 ~ 1/2
+        anime(workAnimationGenerator(1, 0, true, 0));
+        anime(workAnimationGenerator(1, 0, false, 3));
+    }
+    else if (myscroll_m >= workoffsets_math2 &&
+            myscroll_m < workoffsets_3) {        // start work1/2 ~ 3
+        anime(workAnimationGenerator(1, 1, true, 1));
+        anime(workAnimationGenerator(1, 1, false, 3));
+    }
+
+    // work 3 start
+    else if (myscroll_m >= workoffsets_3 &&
+            myscroll_m < workoffsets_math3) {        // start work3 ~ 1/2
+        anime(workAnimationGenerator(2, 0, true, 0));
+        anime(workAnimationGenerator(2, 0, false, 3));
+    }
+    else if (myscroll_m >= workoffsets_math3 &&
+            myscroll_m < aboutoffsets) {        // start work1/2 ~ about
+        anime(workAnimationGenerator(2, 1, true, 1));
+        anime(workAnimationGenerator(2, 1, false, 3));
+    }
+    // works end
+
+    // about start
+    else if ( myscroll_m >= aboutoffsets ) {
+        anime({
+            targets: '.aboutback',
+            translateX: Math.floor(myscroll_m - aboutoffsets)
+        });
+    }
+
+}
+
+// crossbrowsing
+function addEvent(evnt, elem, func) {
+   if (elem.addEventListener)
+      elem.addEventListener(evnt, func, false);   // W3C DOM
+   else if (elem.attachEvent) {
+      elem.attachEvent("on"+evnt, func);          // IE DOM
+   }
+}
+
+
 export const animation = () => {
 
 
-    document.addEventListener('scroll', (e) => {
-        let myscroll = document.documentElement.scrollTop;
-        let myscroll_m = Math.floor(myscroll);
-
-        console.log( 'my scroll ' + myscroll_m);
-
-        // Animation for 'Workworkwork...'
-        if ( myscroll_m >= wk_offset / 2 &&
-             myscroll_m < workoffsets[0]) {  // => Start animating from header / 2
-            anime({
-                targets: '.workback',
-                translateX: myscroll_m
-            });
-        }
-        // header end
-
-        // work 1 start
-        if ( myscroll_m >= workoffsets[0] &&        // Start work1 ~ 1/2
-             myscroll_m < workoffsets_2 / 2 ) {
-            anime(workAnimationGenerator(0, 0, true, 0));  // image
-            anime(workAnimationGenerator(0, 0, false, 3));  // work_titles
-        }
-        else if (myscroll_m >= workoffsets_2 / 2 &&  // start work 1/2 ~ 2
-                 myscroll_m < workoffsets_2) {
-            anime(workAnimationGenerator(0, 1, true, 1));
-            anime(workAnimationGenerator(0, 1, false, 3));
-        }
-
-        // work 2 start
-        else if (myscroll_m >= workoffsets_2 &&
-                myscroll_m < workoffsets_math2) {    // Start work2 ~ 1/2
-            anime(workAnimationGenerator(1, 0, true, 0));
-            anime(workAnimationGenerator(1, 0, false, 3));
-        }
-        else if (myscroll_m >= workoffsets_math2 &&
-                myscroll_m < workoffsets_3) {        // start work1/2 ~ 3
-            anime(workAnimationGenerator(1, 1, true, 1));
-            anime(workAnimationGenerator(1, 1, false, 3));
-        }
-
-        // work 3 start
-        else if (myscroll_m >= workoffsets_3 &&
-                myscroll_m < workoffsets_math3) {        // start work3 ~ 1/2
-            anime(workAnimationGenerator(2, 0, true, 0));
-            anime(workAnimationGenerator(2, 0, false, 3));
-        }
-        else if (myscroll_m >= workoffsets_math3 &&
-                myscroll_m < aboutoffsets) {        // start work1/2 ~ about
-            anime(workAnimationGenerator(2, 1, true, 1));
-            anime(workAnimationGenerator(2, 1, false, 3));
-        }
-        // works end
-
-        // about start
-        else if ( myscroll_m >= aboutoffsets ) {
-            anime({
-                targets: '.aboutback',
-                translateX: Math.floor(myscroll_m - aboutoffsets)
-            });
-        }
-
-    })
-
+    // document.addEventListener('scroll', scrollAction)
+    addEvent('scroll', document, scrollAction)
 
 
 
