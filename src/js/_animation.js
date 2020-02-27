@@ -44,18 +44,15 @@ const workAnimationGenerator = function(select, child1, Boolimg, side) {
 
     let animate = {
         targets: targetGenerator(select, child1, Boolimg),
-        translateY: 80,
-        translateX: -90,
+        translateX: transX,
+        translateY: -90,
         opacity: 1,
         duration: 500,
-        easing: 'easeInQuart',
+        easing: 'easeInOutQuint',
     };
 
     return animate;
 };
-
-const dfdf= workAnimationGenerator(0, 0, true, 0);
-console.log(typeof dfdf)
 
 // offsets
 const wk_offset = work_sect.offsetTop;
@@ -103,61 +100,31 @@ export const animation = () => {
         // work 1 start
         if ( myscroll_m >= workoffsets[0] &&        // Start work1 ~ 1/2
              myscroll_m < workoffsets_2 / 2 ) {
-
-            anime({
-                targets: targetGenerator(0, 0, true),
-                translateX: 80,
-                translateY: -90,
-                opacity: 1,
-                duration: 500,
-                easing: 'easeInQuart',
-            });
+            anime(workAnimationGenerator(0, 0, true, 0))
         }
         else if (myscroll_m >= workoffsets_2 / 2 &&  // start work 1/2 ~ 2
                  myscroll_m < workoffsets_2) {
-            anime({
-                targets:targetGenerator(0, 1, true),
-                translateX: -80,
-                translateY: -90,
-                opacity: 1,
-                duration: 500
-            });
+            anime(workAnimationGenerator(0, 1, true, 1))
         }
 
         // work 2 start
         else if (myscroll_m >= workoffsets_2 &&
                 myscroll_m < workoffsets_math2) {    // Start work2 ~ 1/2
-            anime({
-                targets: targetGenerator(1, 0, true),
-                translateX: 400,
-                duration: 1000
-            });
+            anime(workAnimationGenerator(1, 0, true, 0))
         }
         else if (myscroll_m >= workoffsets_math2 &&
                 myscroll_m < workoffsets_3) {        // start work1/2 ~ 3
-            anime({
-                targets: targetGenerator(1, 1, true),
-                translateX: -400,
-                duration: 1000
-            });
+            anime(workAnimationGenerator(1, 1, true, 1))
         }
 
         // work 3 start
         else if (myscroll_m >= workoffsets_3 &&
                 myscroll_m < workoffsets_math3) {        // start work3 ~ 1/2
-            anime({
-                targets: targetGenerator(2, 0, true),
-                translateX: 400,
-                duration: 1000
-            });
+            anime(workAnimationGenerator(2, 0, true, 0))
         }
         else if (myscroll_m >= workoffsets_math3 &&
                 myscroll_m < aboutoffsets) {        // start work1/2 ~ about
-            anime({
-                targets: targetGenerator(2, 1, true),
-                translateX: -400,
-                duration: 1000
-            });
+            anime(workAnimationGenerator(2, 1, true, 1))
         }
         // works end
 
