@@ -82,6 +82,17 @@
     font-size: 20px;
   }
 
+  .viewMore{
+    width: 193px;
+    height: 42px;
+    //border-radius: 12px;
+
+    .viewButton {
+      line-height: 42px;
+      font-size: 22px;
+    }
+  }
+
   .workLists {
     li {
       margin: 0 $mar;
