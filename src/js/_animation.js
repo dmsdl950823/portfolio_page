@@ -11,6 +11,7 @@ function addEvent(evnt, elem, func) {
 
 
 
+
 // elements
 const header = document.getElementById('header');
 const work_sect = document.getElementById('works');
@@ -19,6 +20,42 @@ const about_sect = document.getElementById('about');
 const quer = document.querySelectorAll('.workLists');
 
 
+
+const targetGenerator = function(select, child1, Boolimg) {
+    switch (Boolimg) {
+        case true: {
+            return quer[select].childNodes[child1].querySelector('.imageSect')
+        }
+        case false: {
+            return quer[select].childNodes[child1].querySelector('.work_cont')
+        }
+    }
+};
+
+const workAnimationGenerator = function(select, child1, Boolimg, side) {
+    // let animate = {};
+    let transX;
+
+    switch (side) {
+        // right: 1 , left: 0
+        case 1: transX = -80; break;
+        case 0 : transX = 80; break;
+    }
+
+    let animate = {
+        targets: targetGenerator(select, child1, Boolimg),
+        translateY: 80,
+        translateX: -90,
+        opacity: 1,
+        duration: 500,
+        easing: 'easeInQuart',
+    };
+
+    return animate;
+};
+
+const dfdf= workAnimationGenerator(0, 0, true, 0);
+console.log(typeof dfdf)
 
 // offsets
 const wk_offset = work_sect.offsetTop;
@@ -66,18 +103,24 @@ export const animation = () => {
         // work 1 start
         if ( myscroll_m >= workoffsets[0] &&        // Start work1 ~ 1/2
              myscroll_m < workoffsets_2 / 2 ) {
+
             anime({
-                targets: quer[0].childNodes[0],
-                rotate: 400,
-                duration: 1000
+                targets: targetGenerator(0, 0, true),
+                translateX: 80,
+                translateY: -90,
+                opacity: 1,
+                duration: 500,
+                easing: 'easeInQuart',
             });
         }
         else if (myscroll_m >= workoffsets_2 / 2 &&  // start work 1/2 ~ 2
                  myscroll_m < workoffsets_2) {
             anime({
-                targets: quer[0].childNodes[1],
-                rotate: 200,
-                duration: 1000
+                targets:targetGenerator(0, 1, true),
+                translateX: -80,
+                translateY: -90,
+                opacity: 1,
+                duration: 500
             });
         }
 
@@ -85,16 +128,16 @@ export const animation = () => {
         else if (myscroll_m >= workoffsets_2 &&
                 myscroll_m < workoffsets_math2) {    // Start work2 ~ 1/2
             anime({
-                targets: quer[1].childNodes[0],
-                rotate: 400,
+                targets: targetGenerator(1, 0, true),
+                translateX: 400,
                 duration: 1000
             });
         }
         else if (myscroll_m >= workoffsets_math2 &&
                 myscroll_m < workoffsets_3) {        // start work1/2 ~ 3
             anime({
-                targets: quer[1].childNodes[1],
-                rotate: 200,
+                targets: targetGenerator(1, 1, true),
+                translateX: -400,
                 duration: 1000
             });
         }
@@ -103,16 +146,16 @@ export const animation = () => {
         else if (myscroll_m >= workoffsets_3 &&
                 myscroll_m < workoffsets_math3) {        // start work3 ~ 1/2
             anime({
-                targets: quer[2].childNodes[0],
-                rotate: 400,
+                targets: targetGenerator(2, 0, true),
+                translateX: 400,
                 duration: 1000
             });
         }
         else if (myscroll_m >= workoffsets_math3 &&
                 myscroll_m < aboutoffsets) {        // start work1/2 ~ about
             anime({
-                targets: quer[2].childNodes[1],
-                rotate: 200,
+                targets: targetGenerator(2, 1, true),
+                translateX: -400,
                 duration: 1000
             });
         }
