@@ -7,7 +7,43 @@ h3.worksTit {
   p {
     text-align: right;
     padding-right: 10.52%;
+    line-height: 70px;
+
+    &:last-child {
+      span {
+        background-color: yellowgreen;
+        position: relative;
+
+
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          background: #0006ff;
+        }
+
+        &:before {
+          left: -150px;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+        }
+        &:after {
+          left: -110px;
+          width: 92px;
+          height: 4px;
+        }
+
+      }
+    }
   }
+
+
+
+
+
+
 }
 
 .workdiv {
