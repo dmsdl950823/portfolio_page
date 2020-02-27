@@ -27,30 +27,38 @@ const targetGenerator = function(select, child1, Boolimg) {
             return quer[select].childNodes[child1].querySelector('.imageSect')
         }
         case false: {
-            return quer[select].childNodes[child1].querySelector('.work_cont')
+            return quer[select].childNodes[child1].querySelector('.work_cont > a')
         }
     }
 };
 
 const workAnimationGenerator = function(select, child1, Boolimg, side) {
-    // let animate = {};
-    let transX;
+    let animate = {};
+    if (side === 1 || side === 0) {
+        let transX;
+        switch (side) {
+            // right: 1 , left: 0
+            case 1: transX = -80; break;
+            case 0 : transX = 80; break;
+        }
 
-    switch (side) {
-        // right: 1 , left: 0
-        case 1: transX = -80; break;
-        case 0 : transX = 80; break;
+        animate = {
+            targets: targetGenerator(select, child1, Boolimg),
+            translateX: transX,
+            translateY: -90,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeInCubic',
+        };
+    } else { // side === 3 ※ '.work_cont > a'
+        animate = {
+            targets: targetGenerator(select, child1, Boolimg),
+            translateY: -124,
+            delay: 300,
+            duration: 700,
+            opacity: 1
+        }
     }
-
-    let animate = {
-        targets: targetGenerator(select, child1, Boolimg),
-        translateX: transX,
-        translateY: -90,
-        opacity: 1,
-        duration: 500,
-        easing: 'easeInOutQuint',
-    };
-
     return animate;
 };
 
@@ -100,31 +108,37 @@ export const animation = () => {
         // work 1 start
         if ( myscroll_m >= workoffsets[0] &&        // Start work1 ~ 1/2
              myscroll_m < workoffsets_2 / 2 ) {
-            anime(workAnimationGenerator(0, 0, true, 0))
+            anime(workAnimationGenerator(0, 0, true, 0));  // image
+            anime(workAnimationGenerator(0, 0, false, 3));  // work_titles
         }
         else if (myscroll_m >= workoffsets_2 / 2 &&  // start work 1/2 ~ 2
                  myscroll_m < workoffsets_2) {
-            anime(workAnimationGenerator(0, 1, true, 1))
+            anime(workAnimationGenerator(0, 1, true, 1));
+            anime(workAnimationGenerator(0, 1, false, 3));
         }
 
         // work 2 start
         else if (myscroll_m >= workoffsets_2 &&
                 myscroll_m < workoffsets_math2) {    // Start work2 ~ 1/2
-            anime(workAnimationGenerator(1, 0, true, 0))
+            anime(workAnimationGenerator(1, 0, true, 0));
+            anime(workAnimationGenerator(1, 0, false, 3));
         }
         else if (myscroll_m >= workoffsets_math2 &&
                 myscroll_m < workoffsets_3) {        // start work1/2 ~ 3
-            anime(workAnimationGenerator(1, 1, true, 1))
+            anime(workAnimationGenerator(1, 1, true, 1));
+            anime(workAnimationGenerator(1, 1, false, 3));
         }
 
         // work 3 start
         else if (myscroll_m >= workoffsets_3 &&
                 myscroll_m < workoffsets_math3) {        // start work3 ~ 1/2
-            anime(workAnimationGenerator(2, 0, true, 0))
+            anime(workAnimationGenerator(2, 0, true, 0));
+            anime(workAnimationGenerator(2, 0, false, 3));
         }
         else if (myscroll_m >= workoffsets_math3 &&
                 myscroll_m < aboutoffsets) {        // start work1/2 ~ about
-            anime(workAnimationGenerator(2, 1, true, 1))
+            anime(workAnimationGenerator(2, 1, true, 1));
+            anime(workAnimationGenerator(2, 1, false, 3));
         }
         // works end
 

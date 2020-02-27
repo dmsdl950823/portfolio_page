@@ -63,7 +63,10 @@ $roboto : "'Roboto', sans-serif";
       > a {
         position: absolute;
         display: block;
-        bottom: 24px;
+        //bottom: 24px;
+        bottom: -100px;
+        opacity: 0;
+
       }
 
       p {
@@ -126,11 +129,10 @@ $roboto : "'Roboto', sans-serif";
   width: 59.366%;
   height: 585px;
   position: relative;
-  background: red;
 }
 
 .imageSect {
-  //opacity: 0;
+  opacity: 0;
   position: absolute;
   top: 90px;
   width: 100%;
