@@ -45,20 +45,20 @@
       padding-right: $side;
 
       &:last-child {
-      span {
-        &:before {
-          left: -100px;
-          width: 10px;
-          height: 10px;
-        }
-        &:after {
-          left: -80px;
-          width: 70px;
-          height: 3px;
-        }
+        span {
+          &:before {
+            left: -100px;
+            width: 10px;
+            height: 10px;
+          }
+          &:after {
+            left: -80px;
+            width: 70px;
+            height: 3px;
+          }
 
+        }
       }
-    }
 
     }
   }
@@ -156,6 +156,18 @@
     small {
       font-size: 34px;
       margin-top: 7px;
+      &:before,
+      &:after{
+        bottom: 10px;
+      }
+      &:before {
+        right: -105px;
+        width: 8px;
+        height: 8px;
+      }
+      &:after {
+        height: 2px;
+      }
     }
   }
 
