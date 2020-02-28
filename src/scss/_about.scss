@@ -1,3 +1,14 @@
+.aboutBackDiv {
+  position: relative;
+  height: 10em;
+  h4 {
+    position: absolute;
+    top: 0;
+    left: -1000px;
+  }
+}
+
+
 .profile_div {
   margin: 60px 0;
 

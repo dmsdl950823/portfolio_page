@@ -61,26 +61,22 @@
       .workLists li:nth-of-type(#{$i}) {
         > .work_cont {
           a {
-            border: 1px solid pink;
             left: 0;
           }
         }
 
         .work_title, p {
           width: 200px;
-          border: 1px solid yellow;
         }
       }
     } @else {  // odd
       .workLists li:nth-of-type(#{$i}) {
         > .work_cont a {
           left: -200px;
-          border: 1px solid olivedrab;
         }
 
         .work_title {
           width: 200px;
-          border: 1px solid blue;
         }
       }
     }
