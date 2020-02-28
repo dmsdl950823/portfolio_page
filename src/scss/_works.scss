@@ -1,3 +1,7 @@
+.workback {
+  
+}
+
 h3.worksTit {
   color: #0006ff;
   font-size: 70px;
@@ -7,11 +11,8 @@ h3.worksTit {
   p {
     text-align: right;
     padding-right: 10.52%;
-    line-height: 70px;
-
     &:last-child {
       span {
-        background-color: yellowgreen;
         position: relative;
 
 
@@ -19,18 +20,18 @@ h3.worksTit {
         &:after {
           content: '';
           position: absolute;
-          bottom: 0;
+          bottom: 14px;
           background: #0006ff;
         }
 
         &:before {
-          left: -150px;
+          left: -140px;
           width: 16px;
           height: 16px;
           border-radius: 50%;
         }
         &:after {
-          left: -110px;
+          left: -100px;
           width: 92px;
           height: 4px;
         }
@@ -38,12 +39,6 @@ h3.worksTit {
       }
     }
   }
-
-
-
-
-
-
 }
 
 .workdiv {

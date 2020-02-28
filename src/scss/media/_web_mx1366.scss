@@ -56,6 +56,26 @@
 
     p {
       padding-right: $mar;
+
+      &:last-child {
+        span {
+          &:before,
+          &:after {
+            bottom: 10px;
+          }
+          &:before {
+            left: -100px;
+            width: 11px;
+            height: 11px;
+          }
+          &:after {
+            left: -80px;
+            width: 70px;
+            height: 4px;
+          }
+
+        }
+      }
     }
   }
 
@@ -115,6 +135,20 @@
     }
     small {
       font-size: 34px;
+      &:before,
+      &:after{
+        bottom: 10px;
+      }
+      &:before {
+        right: -105px;
+        width: 9px;
+        height: 9px;
+      }
+      &:after {
+        right: -80px;
+        width: 72px;
+        height: 3px;
+      }
     }
   }
 

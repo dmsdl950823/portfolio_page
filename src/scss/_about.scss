@@ -28,16 +28,37 @@
 
   @mixin profile($size) {
     //width: 100%;
-    display: block;
     font-size: $size;
   }
 
   strong {
     @include profile(80px);
+    display: block;
     width: 500px;
   }
   small {
     @include profile(40px);
+    position: relative;
+
+    &:before,
+    &:after{
+      content: '';
+      position: absolute;
+      background-color: #0006ff;
+      bottom: 10px;
+    }
+    &:before {
+      right: -125px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    &:after {
+      right: -100px;
+      width: 92px;
+      height: 3px;
+    }
+
   }
 }
 
