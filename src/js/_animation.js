@@ -7,6 +7,7 @@ const work_sect = document.getElementById('works');
 const workdiv = document.querySelectorAll('.workdiv');
 const about_sect = document.getElementById('about');
 const quer = document.querySelectorAll('.workLists');
+const TOP = document.querySelectorAll('.top');
 
 
 
@@ -44,9 +45,9 @@ const workAnimationGenerator = function(select, child1, Boolimg, side) {
             targets: targetGenerator(select, child1, Boolimg),
             translateY: -124,
             // delay: 500,
-            duration: 300,
+            duration: 500,
             opacity: 1,
-            easing: 'easeOutBack',
+            easing: 'easeOutQuart',
         }
     }
     return animate;
@@ -86,10 +87,13 @@ function scrollAction() {
     // Animation for 'Workworkwork...'
     if ( myscroll_m >= wk_offset / 2 &&
          myscroll_m < workoffsets[0]) {  // => Start animating from header / 2
+
         anime({
             targets: '.workback',
-            translateX: myscroll_m
+            translateX: myscroll_m,
+            easing: 'linear'
         });
+
     }
     // header end
 
@@ -134,7 +138,8 @@ function scrollAction() {
     else if ( myscroll_m >= aboutoffsets ) {
         anime({
             targets: '.aboutback',
-            translateX: Math.floor(myscroll_m - aboutoffsets)
+            translateX: Math.floor(myscroll_m - aboutoffsets),
+            easing: 'linear'
         });
     }
 
