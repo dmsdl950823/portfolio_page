@@ -85,13 +85,23 @@ function scrollAction() {
     console.log( 'my scroll ' + myscroll_m);
 
     // Animation for 'Workworkwork...'
-    if ( myscroll_m >= wk_offset / 2 &&
-         myscroll_m < workoffsets[0]) {  // => Start animating from header / 2
+    // if ( myscroll_m >= wk_offset / 2 &&
+    //      myscroll_m < workoffsets[0]) {  // => Start animating from header / 2
+
+    if ( myscroll_m > 0) {  // => Start animating from header / 2
 
         anime({
             targets: '.workback',
-            translateX: myscroll_m,
-            easing: 'linear'
+            translateX: myscroll_m / 2,
+            easing: 'linear',
+            duration: 300
+        });
+
+        anime({
+            targets: '.aboutback',
+            translateX: -myscroll_m / 2,
+            easing: 'linear',
+            duration: 300
         });
 
     }
@@ -136,11 +146,7 @@ function scrollAction() {
 
     // about start
     else if ( myscroll_m >= aboutoffsets ) {
-        anime({
-            targets: '.aboutback',
-            translateX: Math.floor(myscroll_m - aboutoffsets),
-            easing: 'linear'
-        });
+        // ...
     }
 
 }
