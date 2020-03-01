@@ -32,7 +32,9 @@
 
 .profile_name {
   position: absolute;
-  bottom: 60px;
+  bottom: 0;
+  opacity: 0;
+  //bottom: 60px;
   right: 0;
   width: 486px;
   color: #0006ff;

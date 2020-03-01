@@ -30,9 +30,10 @@
 
       li {
         font-size: 15px;
-        //height: 66px;
-        //line-height: 66px;
+        height: 30px;
+        line-height: 30px;
         width: 81px;
+        margin-top: 0;
 
         &.on {
           &:after{
@@ -48,12 +49,26 @@
   }
 
   .lan {
-    margin-left: $gutt;
-    //margin-right: $mar;
+    //margin-left: $gutt;
+    float:right;
+    margin-right: $mar;
+    margin-top: 5px;
     width: 5.33%;
     height: 20px;
-    background: #0006ff;
   }
+
+  .slider {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .lanCheck {
+    &:checked + .slider {
+      margin-left: 0;
+    }
+  }
+
+
 
 
   .top {
@@ -75,6 +90,26 @@
 
     p {
       padding-right: $mar;
+
+      &:last-child {
+        span {
+          &:before,
+          &:after {
+            bottom: 5px
+          }
+          &:before {
+            left: -80px;
+            width: 5px;
+            height: 5px;
+          }
+          &:after {
+            left: -70px;
+            width: 65px;
+            height: 2px;
+          }
+
+        }
+      }
     }
   }
 
@@ -123,7 +158,8 @@
   .profile_name {
     width: 90%;
     right: 0;
-    bottom: -48px;
+    //bottom: -48px;
+    bottom: -88px;
     text-align: right;
 
     strong{
@@ -157,10 +193,10 @@
 
     p {
       font-size: 13px;
-      width: 85%;
+      width: 100%;
 
       &.Intro {
-        font-size: 28px;
+        font-size: 25px;
         //margin-bottom: 20px;
       }
     }
