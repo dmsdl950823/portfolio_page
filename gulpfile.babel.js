@@ -11,6 +11,9 @@ import image from "gulp-image";
 import gulpFont from 'gulp-font';
 import include from 'gulp-include';
 
+
+
+
 sass.compiler = require('node-sass');
 
 const routes = {
@@ -18,6 +21,16 @@ const routes = {
     watch: "src/**/*.pug",
     src: "src/*.pug",
     dest: "build",
+  },
+  portcontents: {
+    watch: "src/**/_portPage.pug",
+    src: "src/templetes/_portPage.pug",
+    dest: "build/portfolio",
+  },
+  portjs: {
+    watch: "src/js/portfolio/*.js",
+    src: "src/js/_portPage.js",
+    dest: "build/js",
   },
   js: {
     watch: "src/js/*.js",
@@ -45,6 +58,14 @@ const routes = {
     src: "src/fonts/*.ttf",
     dest: "build/font"
   }
+};
+
+
+const routing = () => {
+  return gulp
+      .src(routes.portcontents.src)
+      .pipe(gpug())
+      .pipe(gulp.dest(routes.portcontents.dest))
 };
 
 const pug = () => {
@@ -120,6 +141,20 @@ const anime = () => {
       .pipe(gulp.dest(routes.anime.dest))
 };
 
+const portjs = () => {
+  return gulp
+    .src(routes.portjs.src)
+    .pipe(
+      bro({
+        transform: [
+          babelify.configure({ presets: ["@babel/preset-env"] }),
+          ["uglifyify", { global: true }],
+        ],
+      })
+    )
+    .pipe(gulp.dest(routes.portjs.dest));
+};
+
 const js = () => {
   return gulp
     .src(routes.js.src)
@@ -143,8 +178,8 @@ const threeModule = () => {
 };
 
 const watch = () => {
-    // console.log(toString(gulp))
     gulp.watch(routes.pug.watch, pug);
+    gulp.watch(routes.portcontents.watch, routing);
     gulp.watch(routes.js.watch, js);
     gulp.watch(routes.styles.watch, styles);
     gulp.watch(routes.img.src, images);
@@ -152,7 +187,7 @@ const watch = () => {
 
 // render
 const prepare = gulp.series([clean, images]);
-const assets = gulp.series([pug, styles, js]);
+const assets = gulp.series([pug, routing, styles, js, portjs]);
 const live = gulp.parallel([watch, webserver]);
 
 export const dev = gulp.series([prepare, assets, live]);
