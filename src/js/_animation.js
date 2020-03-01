@@ -8,7 +8,9 @@ const workdiv = document.querySelectorAll('.workdiv');
 const about_sect = document.getElementById('about');
 const quer = document.querySelectorAll('.workLists');
 const TOP = document.querySelectorAll('.top');
+const prof_name = document.querySelector('.profile_name');
 
+var aboutquery = window.matchMedia("(max-width: 375px)")
 
 
 const targetGenerator = function(select, child1, Boolimg) {
@@ -84,9 +86,7 @@ function scrollAction() {
 
     console.log( 'my scroll ' + myscroll_m);
 
-    // Animation for 'Workworkwork...'
-    // if ( myscroll_m >= wk_offset / 2 &&
-    //      myscroll_m < workoffsets[0]) {  // => Start animating from header / 2
+    // Animation for 'work/about background'
 
     if ( myscroll_m > 0) {  // => Start animating from header / 2
 
@@ -108,45 +108,59 @@ function scrollAction() {
     // header end
 
     // work 1 start
-    if ( myscroll_m >= workoffsets[0] &&        // Start work1 ~ 1/2
-         myscroll_m < workoffsets_2 / 2 ) {
+    if ( myscroll_m >= workoffsets[0] - 200 &&        // Start work1 ~ 1/2
+         myscroll_m < workoffsets_2 / 2 - 200 ) {
         anime(workAnimationGenerator(0, 0, true, 0));  // image
         anime(workAnimationGenerator(0, 0, false, 3));  // work_titles
     }
-    else if (myscroll_m >= workoffsets_2 / 2 &&  // start work 1/2 ~ 2
-             myscroll_m < workoffsets_2) {
+    else if (myscroll_m >= workoffsets_2 / 2 - 200 &&  // start work 1/2 ~ 2
+             myscroll_m < workoffsets_2 - 200) {
         anime(workAnimationGenerator(0, 1, true, 1));
         anime(workAnimationGenerator(0, 1, false, 3));
     }
 
     // work 2 start
-    else if (myscroll_m >= workoffsets_2 &&
-            myscroll_m < workoffsets_math2) {    // Start work2 ~ 1/2
+    else if (myscroll_m >= workoffsets_2 - 200 &&
+            myscroll_m < workoffsets_math2 - 200) {    // Start work2 ~ 1/2
         anime(workAnimationGenerator(1, 0, true, 0));
         anime(workAnimationGenerator(1, 0, false, 3));
     }
-    else if (myscroll_m >= workoffsets_math2 &&
-            myscroll_m < workoffsets_3) {        // start work1/2 ~ 3
+    else if (myscroll_m >= workoffsets_math2 - 200 &&
+            myscroll_m < workoffsets_3 - 200) {        // start work1/2 ~ 3
         anime(workAnimationGenerator(1, 1, true, 1));
         anime(workAnimationGenerator(1, 1, false, 3));
     }
 
     // work 3 start
-    else if (myscroll_m >= workoffsets_3 &&
-            myscroll_m < workoffsets_math3) {        // start work3 ~ 1/2
+    else if (myscroll_m >= workoffsets_3 - 200 &&
+            myscroll_m < workoffsets_math3 - 200) {        // start work3 ~ 1/2
         anime(workAnimationGenerator(2, 0, true, 0));
         anime(workAnimationGenerator(2, 0, false, 3));
     }
-    else if (myscroll_m >= workoffsets_math3 &&
-            myscroll_m < aboutoffsets) {        // start work1/2 ~ about
+    else if (myscroll_m >= workoffsets_math3 - 200 &&
+            myscroll_m < aboutoffsets - 200) {        // start work1/2 ~ about
         anime(workAnimationGenerator(2, 1, true, 1));
         anime(workAnimationGenerator(2, 1, false, 3));
     }
     // works end
 
     // about start
-    else if ( myscroll_m >= aboutoffsets ) {
-        // ...
+    else if ( myscroll_m >= aboutoffsets + 200 ) {
+        let targetAni = {
+            targets: '.profile_name',
+            duration: 500,
+            opacity: 1,
+            easing: 'easeOutQuart',
+        };
+
+        if (aboutquery.matches) {
+            targetAni.translateY = -44;
+            anime(targetAni);
+        } else {
+            targetAni.translateY = -60;
+            anime(targetAni);
+        }
+
     }
 
 }
