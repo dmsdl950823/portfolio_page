@@ -22,13 +22,13 @@ const routes = {
     src: "src/*.pug",
     dest: "build",
   },
-  portcontents: {
-    watch: "src/**/_portPage.pug",
-    src: "src/templetes/_portPage.pug",
-    dest: "build/portfolio",
+  viewPage: {
+    watch: "src/**/viewPage.pug",
+    src: "src/templetes/viewPage.pug",
+    dest: "build/pages",
   },
   portjs: {
-    watch: "src/js/portfolio/*.js",
+    watch: "src/js/libs/*.js",
     src: "src/js/_portPage.js",
     dest: "build/js",
   },
@@ -50,6 +50,11 @@ const routes = {
     src: "src/scss/style.scss",
     dest: "build/css" ,
   },
+  slick: {
+    watch: "src/scss/slick/*.css",
+    src: "src/scss/slick/*.css",
+    dest: "build/css/slick"
+  },
   img: {
     src: "src/images/*",
     dest: "build/images"
@@ -61,18 +66,23 @@ const routes = {
 };
 
 
-const routing = () => {
-  return gulp
-      .src(routes.portcontents.src)
-      .pipe(gpug())
-      .pipe(gulp.dest(routes.portcontents.dest))
+function pug(src, dest) {
+    return gulp
+        .src(src)
+        .pipe(gpug())
+        .pipe(gulp.dest(dest));
+}
+
+const index = () => {
+    var src = routes.pug.src;
+    var dest = routes.pug.dest;
+    return pug(src, dest);
 };
 
-const pug = () => {
-  return gulp
-    .src(routes.pug.src)
-    .pipe(gpug())
-    .pipe(gulp.dest(routes.pug.dest));
+const viewPage = () => {
+    var src = routes.viewPage.src;
+    var dest = routes.viewPage.dest;
+    return pug(src, dest);
 };
 
 const clean = () => del(["build"]);
@@ -132,13 +142,10 @@ const styles = () => {
       .pipe(gulp.dest(routes.styles.dest))
 };
 
-// do not use
-const anime = () => {
+const slick = () => {
   return gulp
-      .src(routes.anime.src)
-      .pipe(include())
-      .on('error', console.log)
-      .pipe(gulp.dest(routes.anime.dest))
+      .src(routes.slick.src)
+      .pipe(gulp.dest(routes.slick.dest))
 };
 
 const portjs = () => {
@@ -169,6 +176,32 @@ const js = () => {
     .pipe(gulp.dest(routes.js.dest));
 };
 
+function including(src, build) {
+    return gulp
+    .src(src)
+      .pipe(include())
+      .on('error', console.log)
+    .pipe(gulp.dest(build));
+}
+
+const slickminJS = () => {
+    var src = 'src/js/libs/slick.min.js';
+    var build = 'build/js/slick';
+    return including(src, build);
+};
+
+const Jquery = () => {
+    var src = 'src/js/libs/jquery-1.11.0.min.js';
+    var build = 'build/js/slick';
+    return including(src, build);
+};
+
+const Jquery_migrate = () => {
+    var src = 'src/js/libs/jquery-migrate-1.2.1.min.js';
+    var build = 'build/js/slick';
+    return including(src, build);
+};
+
 const threeModule = () => {
   return gulp
       .src(routes.three.src)
@@ -178,8 +211,9 @@ const threeModule = () => {
 };
 
 const watch = () => {
-    gulp.watch(routes.pug.watch, pug);
-    gulp.watch(routes.portcontents.watch, routing);
+    gulp.watch(routes.pug.watch, index);
+    // gulp.watch(routes.portcontents.watch, routing);
+    gulp.watch(routes.portjs.watch, portjs);
     gulp.watch(routes.js.watch, js);
     gulp.watch(routes.styles.watch, styles);
     gulp.watch(routes.img.src, images);
@@ -187,7 +221,9 @@ const watch = () => {
 
 // render
 const prepare = gulp.series([clean, images]);
-const assets = gulp.series([pug, routing, styles, js, portjs]);
+const assets = gulp.series([index, viewPage]);
+const styleSheets = gulp.parallel([styles, slick]);
+const javascripts = gulp.parallel([js, slickminJS, Jquery, Jquery_migrate]);  //  portjs, slickminJS, Jquery, Jquery_migrate
 const live = gulp.parallel([watch, webserver]);
 
-export const dev = gulp.series([prepare, assets, live]);
+export const dev = gulp.series([prepare, assets,styleSheets, javascripts, live]);
