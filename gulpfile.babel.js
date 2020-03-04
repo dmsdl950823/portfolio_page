@@ -55,6 +55,9 @@ const routes = {
     src: "src/scss/slick/*.css",
     dest: "build/css/slick"
   },
+  viewmoreCSS: {
+    src: "src/scss/slick/*.scss"
+  },
   img: {
     src: "src/images/*",
     dest: "build/images"
@@ -130,22 +133,29 @@ const images = () => {
       .pipe(gulp.dest(routes.img.dest))
 };
 
-const styles = () => {
-  return gulp
-      .src(routes.styles.src)
+function scssGenerator(src, dest) {
+    return gulp
+      .src(src)
       .pipe(sass())
       // .pipe(sass().on('error', sass.logError()))
       .pipe(
           autoP({})
       )
       .pipe(miniCSS())
-      .pipe(gulp.dest(routes.styles.dest))
+      .pipe(gulp.dest(dest))
+}
+
+const styles = () => {
+  var src = routes.styles.src;
+  var dest = routes.styles.dest;
+  return scssGenerator(src, dest);
+
 };
 
-const slick = () => {
-  return gulp
-      .src(routes.slick.src)
-      .pipe(gulp.dest(routes.slick.dest))
+const viewmoreCSS = () => {
+  var src = routes.viewmoreCSS.src;
+  var dest = routes.styles.dest;
+  return scssGenerator(src, dest);
 };
 
 const portjs = () => {
@@ -184,6 +194,13 @@ function including(src, build) {
     .pipe(gulp.dest(build));
 }
 
+const slick = () => {
+    var src = routes.slick.src;
+    var build = routes.slick.dest;
+
+    return including(src, build)
+};
+
 const slickminJS = () => {
     var src = 'src/js/libs/slick.min.js';
     var build = 'build/js/slick';
@@ -202,6 +219,12 @@ const Jquery_migrate = () => {
     return including(src, build);
 };
 
+const viewMore_js = () => {
+    var src = 'src/js/_viewmore.js';
+    var build = 'build/js';
+    return including(src, build);
+};
+
 const threeModule = () => {
   return gulp
       .src(routes.three.src)
@@ -212,7 +235,6 @@ const threeModule = () => {
 
 const watch = () => {
     gulp.watch(routes.pug.watch, index);
-    // gulp.watch(routes.portcontents.watch, routing);
     gulp.watch(routes.portjs.watch, portjs);
     gulp.watch(routes.js.watch, js);
     gulp.watch(routes.styles.watch, styles);
@@ -222,8 +244,8 @@ const watch = () => {
 // render
 const prepare = gulp.series([clean, images]);
 const assets = gulp.series([index, viewPage]);
-const styleSheets = gulp.parallel([styles, slick]);
-const javascripts = gulp.parallel([js, slickminJS, Jquery, Jquery_migrate]);  //  portjs, slickminJS, Jquery, Jquery_migrate
+const styleSheets = gulp.series([styles, viewmoreCSS, slick]);
+const javascripts = gulp.parallel([js, slickminJS, Jquery, Jquery_migrate, viewMore_js]);
 const live = gulp.parallel([watch, webserver]);
 
 export const dev = gulp.series([prepare, assets,styleSheets, javascripts, live]);
