@@ -1,15 +1,21 @@
 .Works_Section {
-  max-width: 1920px;
+  max-width: 1500px;
   margin: 50px auto;
+  padding: 0 1.2%;
   border:1px solid blue;
-
 }
 
-
+.Works_Title {
+  font-size: 50px;
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+  color: #0006ff;
+}
 
 .slider-for {
   border: 1px solid green;
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
 
   .slick-track {
@@ -26,19 +32,65 @@
 
 
 .slider-nav {
+  overflow: hidden;
   border: 1px solid aqua;
   margin: 0 auto;
-  max-width: 1200px;
+  margin-top: 50px ;
+  width: 80%;
+  position: relative;
+
+  & > button {
+    cursor: pointer;
+    background: #f2f2f2;
+    border: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 0;
+    color: transparent;
+
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      background: #0006ff;
+      top:10px;
+      left:10px;
+      border-radius: 2px;
+    }
+
+    &:after {
+      width: 3px;
+      height: 15px;
+    }
+    &:before {
+      width: 15px;
+      height: 3px;
+    }
+  }
 
   > button[aria-label="Previous"] {
-    background: greenyellow;
+    margin-right: 5%;
+    float: left;
+    left: 0;
+    transform: rotate(-45deg);
   }
   > button[aria-label="Next"] {
-    background: yellow;
+    margin-left: 5%;
+    float: right;
+    right: 0;
+    transform: rotate(135deg);
   }
 
   .draggable {
     border: 1px solid yellow;
+    width: 80%;
+    margin: 20px auto;
 
     .slick-track {
       height: 100px;
@@ -56,11 +108,23 @@
 
 .slick-dots {
   overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+
   > li{
-    border: 1px solid blue;
     float: left;
+    margin: 0 5px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    line-height:  20px;
     button {
-      background-color: red;
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background: #eaf6ff;
+      border:none;
     }
   }
 }
