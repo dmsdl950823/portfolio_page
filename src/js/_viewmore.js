@@ -7,15 +7,16 @@ function jsonLoad() {
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             const data = JSON.parse(this.responseText);
-            jsonapplier(data);
+            const param = parseInt(window.location.hash.replace('#', ''));
+            jsonapplier(data, param);
         }
     };
     xhttp.open('GET', '../json/works.json', true);
     xhttp.send();
 };
 
-function jsonapplier(data) {
-    let types = 0;
+function jsonapplier(data, param) {
+    let types = param;
 
     // filtering data with type
     const filtered_data = data.filter(_data => _data.work_type === types);
@@ -35,7 +36,7 @@ function jsonapplier(data) {
           slidesToShow: 3,
           slidesToScroll: 1,
           asNavFor: '.slider-for',
-          dots: true,
+          // dots: true,
           centerMode: true,
           focusOnSelect: true
         });
@@ -43,8 +44,23 @@ function jsonapplier(data) {
         // mapping data into DOM
         // let dataMap = [];
         const mapped_data = filtered_data.map(_data => {
-            $('.slider-for').slick('slickAdd', `<div>${ _data.title }</div>`)
-            $('.slider-nav').slick('slickAdd', `<div>${ _data.title }</div>`)
+
+            const largeimages = `<div>
+                                    <a href="/" class="page_anchor" target="_blank">
+                                        <img src="../images/${ _data.src }.jpg" alt=${ _data.id } />
+                                    </a>
+                                    <h3 class="largeTitle">${ _data.title }</h3>
+                                </div>`;
+
+            const smallimages = `<div>
+                                    <img src="../images/${ _data.src }.jpg" alt=${ _data.id } />
+                                    <p class="smallTitle"><span>${_data.title}</span></p>
+                                </div>`;
+
+
+
+            $('.slider-for').slick('slickAdd', largeimages);
+            $('.slider-nav').slick('slickAdd', smallimages);
         });
 
 
@@ -52,7 +68,7 @@ function jsonapplier(data) {
 
 
 
-    console.log(filtered_data)
+    console.log(data)
 }
 
 
