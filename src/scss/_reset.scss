@@ -52,6 +52,14 @@ a {
 	}
 }
 
+button {
+	&:focus,
+	&:active {
+		outline: 0;
+	}
+}
+
+
 ._skip {
 	font-size: 0;
 	width: 0;
