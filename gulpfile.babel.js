@@ -61,10 +61,6 @@ const routes = {
   img: {
     src: "src/images/*",
     dest: "build/images"
-  },
-  fonts: {
-    src: "src/fonts/*.ttf",
-    dest: "build/font"
   }
 };
 
@@ -99,20 +95,6 @@ const webserver = () => {
       port: 8000,
     })
   );
-};
-
-const fonts = () => {
-  return gulp
-      .src(routes.fonts.src, {read: false})
-      .pipe(gulpFont({
-          ext: 'font.ttf',
-          fontface: routes.fonts.src,
-          // relative: routes.fonts.src,
-          dest: routes.fonts.dest,
-          // embed: ['woff'],
-          // collate: false
-      }))
-      .pipe(gulp.dest(routes.fonts.dest))
 };
 
 const images = () => {
@@ -225,6 +207,12 @@ const viewMore_js = () => {
     return including(src, build);
 };
 
+const fonts = () => {
+    var src = 'src/fonts/*.ttf';
+    var build = 'build/fonts';
+    return including(src, build);
+};
+
 const threeModule = () => {
   return gulp
       .src(routes.three.src)
@@ -243,7 +231,7 @@ const watch = () => {
 
 // render
 const prepare = gulp.series([clean, images]);
-const assets = gulp.series([index, viewPage]);
+const assets = gulp.series([index, viewPage, fonts]); // fonts
 const styleSheets = gulp.series([styles, viewmoreCSS, slick]);
 const javascripts = gulp.parallel([js, slickminJS, Jquery, Jquery_migrate, viewMore_js]);
 const live = gulp.parallel([watch, webserver]);
