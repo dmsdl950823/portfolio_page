@@ -2,7 +2,10 @@
   max-width: 1500px;
   margin: 50px auto;
   padding: 0 1.2%;
-  border:1px solid blue;
+
+  div:focus {
+    outline: 0;
+  }
 }
 
 .Works_Title {
@@ -14,13 +17,26 @@
 }
 
 .slider-for {
-  border: 1px solid green;
   width: 100%;
   margin: 0 auto;
+  background: #eaf6ff;
+  padding: 50px 0;
+}
 
-  .slick-track {
-    height: 200px;
+.page_anchor {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  img {
+    width: 100%;
   }
+}
+
+.largeTitle {
+  text-align: center;
+  font-size: 30px;
+  color: #0006ff;
+  margin-top: 20px;
 }
 
 .slideWide {
@@ -91,10 +107,52 @@
     border: 1px solid yellow;
     width: 80%;
     margin: 20px auto;
+    height: 250px;
 
     .slick-track {
-      height: 100px;
+      height: 250px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+
+      .slick-slide {
+        border: 5px solid white;
+        box-shadow: 1px 1px 15px rgba(0,0,0,.1);
+        margin: 15px 15px;
+        position: relative;
+        cursor: pointer;
+
+        &:hover > .smallTitle{
+          opacity: 1;
+        }
+      }
     }
+  }
+}
+
+.smallTitle {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transition: 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    display: table-cell;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 25px;
+    color: #0006ff;
   }
 }
 
