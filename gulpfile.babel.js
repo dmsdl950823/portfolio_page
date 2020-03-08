@@ -213,6 +213,12 @@ const fonts = () => {
     return including(src, build);
 };
 
+const json = () => {
+    var src = 'src/json/*.json';
+    var build = 'build/json';
+    return including(src, build);
+};
+
 const threeModule = () => {
   return gulp
       .src(routes.three.src)
@@ -233,7 +239,7 @@ const watch = () => {
 const prepare = gulp.series([clean, images]);
 const assets = gulp.series([index, viewPage, fonts]); // fonts
 const styleSheets = gulp.series([styles, viewmoreCSS, slick]);
-const javascripts = gulp.parallel([js, slickminJS, Jquery, Jquery_migrate, viewMore_js]);
+const javascripts = gulp.parallel([js, json, slickminJS, Jquery, Jquery_migrate, viewMore_js]);
 const live = gulp.parallel([watch, webserver]);
 
 export const dev = gulp.series([prepare, assets,styleSheets, javascripts, live]);
