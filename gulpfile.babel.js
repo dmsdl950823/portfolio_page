@@ -25,7 +25,7 @@ const routes = {
   viewPage: {
     watch: "src/**/viewPage.pug",
     src: "src/templetes/viewPage.pug",
-    dest: "build/pages",
+    dest: "build",
   },
   portjs: {
     watch: "src/js/libs/*.js",
