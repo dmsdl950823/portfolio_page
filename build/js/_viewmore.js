@@ -8,13 +8,12 @@ function jsonLoad() {
         if(this.readyState === 4 && this.status === 200) {
             const data = JSON.parse(this.responseText);
             const param = parseInt(window.location.hash.replace('#', ''));
-            console.log(param)
             jsonapplier(data, param);
         }
     };
     xhttp.open('GET', '../json/works.json', true);
     xhttp.send();
-};
+}
 
 function jsonapplier(data, param) {
     let types = param;
@@ -47,11 +46,11 @@ function jsonapplier(data, param) {
         const mapped_data = filtered_data.map(_data => {
 
             const largeimages = `<div>
-                                    <a href="/" class="page_anchor">
-                                        <img src="../images/${ _data.src }.jpg" alt=${ _data.id } width="500" />
+                                    <a href="/" class="page_anchor" target="_blank">
+                                        <img src="../images/${ _data.src }.jpg" alt=${ _data.id } />
                                     </a>
                                     <h3 class="largeTitle">${ _data.title }</h3>
-                                </div>`;
+                       5         </div>`;
 
             const smallimages = `<div>
                                     <img src="../images/${ _data.src }.jpg" alt=${ _data.id } />
