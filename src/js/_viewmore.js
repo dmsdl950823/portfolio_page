@@ -13,7 +13,7 @@ function jsonLoad() {
     };
     xhttp.open('GET', '../json/works.json', true);
     xhttp.send();
-};
+}
 
 function jsonapplier(data, param) {
     let types = param;
