@@ -50,7 +50,7 @@ function jsonapplier(data, param) {
                                         <img src="../images/${ _data.src }.jpg" alt=${ _data.id } />
                                     </a>
                                     <h3 class="largeTitle">${ _data.title }</h3>
-                       5         </div>`;
+                                </div>`;
 
             const smallimages = `<div>
                                     <img src="../images/${ _data.src }.jpg" alt=${ _data.id } />
