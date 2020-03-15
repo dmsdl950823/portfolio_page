@@ -2,13 +2,11 @@ import anime from './animejs/lib/anime.es.js';
 
 
 // elements
-const header = document.getElementById('header');
 const work_sect = document.getElementById('works');
 const workdiv = document.querySelectorAll('.workdiv');
 const about_sect = document.getElementById('about');
 const quer = document.querySelectorAll('.workLists');
-const TOP = document.querySelectorAll('.top');
-const prof_name = document.querySelector('.profile_name');
+const TOP = document.getElementById('top');
 
 var aboutquery = window.matchMedia("(max-width: 375px)")
 
@@ -55,6 +53,18 @@ const workAnimationGenerator = function(select, child1, Boolimg, side) {
     return animate;
 };
 
+
+const topBttnAction = () => {
+    addEvent('click', TOP, function (e) {
+        let myscroll = document.documentElement.scrollTop;
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    })
+};
+
 // offsets
 const wk_offset = work_sect.offsetTop;
 function workdivs_offset() {
@@ -89,6 +99,7 @@ function scrollAction() {
     // Animation for 'work/about background'
 
     if ( myscroll_m > 0) {  // => Start animating from header / 2
+        TOP.style.opacity = 1;
 
         anime({
             targets: '.workback',
@@ -104,6 +115,8 @@ function scrollAction() {
             duration: 300
         });
 
+    } else {
+        TOP.style.opacity = 0;
     }
     // header end
 
@@ -179,7 +192,8 @@ export const animation = () => {
 
 
     // document.addEventListener('scroll', scrollAction)
-    addEvent('scroll', document, scrollAction)
+    addEvent('scroll', document, scrollAction);
+    topBttnAction();
 
 
 
