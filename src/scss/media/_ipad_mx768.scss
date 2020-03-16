@@ -25,26 +25,20 @@
 
   // works
   h3.worksTit {
-    //font-size: 40px;
-
-    p {
-      //padding-right: $side;
-    }
   }
   .work_title {
     font-size: 32px;
-    //width: 0;
   }
 
 
 
-  //$tit_width: 230px;
   .workLists {
     li {
-      margin: 0 $mar;
-      margin-bottom: 50px;
-      width: 95.32%;
+      width: 47%;
 
+      &:last-child {
+        display: none;
+      }
       > .work_cont {
           width: 0;
         > a,
@@ -58,32 +52,6 @@
       width: 100%;
     }
 
-  }
-
-  @for $i from 1 through 2 {
-    @if ($i % 2 == 0) { // even
-      .workLists li:nth-of-type(#{$i}) {
-        > .work_cont {
-          a {
-            left: 0;
-          }
-        }
-
-        .work_title, p {
-          width: 200px;
-        }
-      }
-    } @else {  // odd
-      .workLists li:nth-of-type(#{$i}) {
-        > .work_cont a {
-          left: -200px;
-        }
-
-        .work_title {
-          width: 200px;
-        }
-      }
-    }
   }
 
   // about

@@ -55,8 +55,6 @@
     font-size: 50px;
 
     p {
-      padding-right: $mar;
-
       &:last-child {
         span {
           &:before,
@@ -79,10 +77,6 @@
     }
   }
 
-  .work_title {
-    font-size: 35px;
-  }
-
 
   .viewMore{
     width: 400px;
@@ -97,21 +91,57 @@
 
   .workLists {
     li {
-      margin: 0 $mar;
-      margin-bottom: 69px;
-      width: 95.9%;
-
       > .work_cont {
         width: 33.81%;
       height: $imgHeight;
       }
     }
+  }
 
+  .work_title {
+    font-size: 30px;
+    margin-top: 40px;
+  }
+
+  .contribution_wrap {
+    height: 80px;
+  }
+
+  .contribution {
+    font-size: 15px;
+
+    > span {
+      &:before,
+      &:after {
+        left: 15px;
+      }
+    }
   }
 
   .imgAnchor {
-    width: 66.19%;
+    width: 100%;
     height: $imgHeight;
+  }
+
+
+  .work_cont {
+    //float: left;
+    //position: relative;
+    //width: 100%;
+    //height: 100%;
+    //padding: 25px;
+    //box-sizing: border-box;
+    //
+    //p {
+    //  font-size: 15px;
+    //  text-align: justify;
+    //  font-family: $roboto;
+    //  height: 50px;
+    //}
+
+    .workNum {
+      font-size: 45px;
+    }
   }
 
   // about

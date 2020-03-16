@@ -37,9 +37,6 @@
 // works
   h3.worksTit {
   font-size: 70px;
-  p {
-    padding-right: 1.6%;
-  }
 }
 
   @mixin marg() {
@@ -48,9 +45,7 @@
 
   .workLists {
     li {
-      margin: 0 1.6%;
-      margin-bottom: 95px;
-      width: 96.8%;
+      width: 31%;
     }
   }
 

@@ -47,8 +47,6 @@
     font-size: 40px;
 
     p {
-      padding-right: $side;
-
       &:last-child {
         span {
           &:before {
@@ -73,9 +71,34 @@
   }
 
   .work_title {
-    font-size: 32px;
-    width: $tit_width;
+    font-size: 28px;
+    margin-top: 35px;
+    margin-bottom: 10px;
   }
+
+  .sub_title{
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .contribution_wrap{
+    height: 60px;
+  }
+
+  .contribution {
+    font-size: 12px;
+
+    > span {
+      &:before,
+      &:after {
+        height: 10px;
+        top: 20px;
+        left: 10px;
+      }
+    }
+
+  }
+
 
   .viewMore{
     width: 298px;
@@ -92,12 +115,9 @@
 
   .workLists {
     li {
-      margin: 0 $side;
-      margin-bottom: 50px;
-      width: 95.32%;
 
       > .work_cont {
-        width:25.41%;
+        //width:25.41%;
         height: $imgHeight;
 
         > a,
@@ -110,34 +130,13 @@
     }
 
     .imgAnchor {
-      width: 74.59%;
+      width: 100%;
       height: $imgHeight;
     }
 
   }
 
 
-  @for $i from 1 through 2 {
-    @if ($i % 2 == 0) { // even
-      .workLists li:nth-of-type(#{$i}) {
-        > .work_cont {
-          a {
-            right: -150px;
-          }
-        }
-
-        .work_title {
-
-        }
-      }
-    } @else {  // odd
-      .workLists li:nth-of-type(#{$i}) {
-        > .work_cont a {
-          left: -150px;
-        }
-      }
-    }
-  }
 
   // about
   .profile {

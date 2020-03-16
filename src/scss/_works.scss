@@ -11,17 +11,15 @@
 h3.worksTit {
   color: #0006ff;
   font-size: 70px;
-  width: 100%;
   margin-top: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  padding-right: 4%;
+  text-align: right;
 
   p {
-    text-align: right;
-    padding-right: 10.52%;
     &:last-child {
       span {
         position: relative;
-
 
         &:before,
         &:after {
@@ -52,11 +50,157 @@ h3.worksTit {
   margin-bottom: 60px;
 }
 
+$roboto : "'Roboto', sans-serif";
+
+.workLists {
+  display: flex;
+  flex-direction: row;
+  padding: 0 4%;
+  justify-content: space-between;
+  margin-bottom: 50px;
+
+
+  li {
+    //margin: 0 1.5%;
+    width: 30%;
+
+
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    > a {
+      float: left;
+    }
+  }
+}
+
+
 .work_title {
   font-size: 40px;
   color:#0006ff;
   display: block;
+  text-align: right;
+  margin-top: 60px;
+  margin-bottom: 15px;
 }
+
+.sub_title{
+  color: #4D4FFF;
+  font-size: 25px;
+  display: block;
+  text-align: right;
+  margin-bottom: 60px;
+}
+
+.desc_title {
+  margin-top: 28px;
+  color: #4D4FFF;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.contribution_wrap {
+  width: 100%;
+  position: relative;
+  height: 100px;
+}
+
+.contribution {
+  font-size: 18px;
+  color: #ccc;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  > span {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 12px;
+      border-radius: 15px;
+      top: 30px;
+      left: 20px;
+    }
+
+    &:before{
+      background-color: #eaf6ff;
+      width: 80%;
+    }
+    &:after {
+      background-color: #0D90FF;
+      width: 70%;
+    }
+  }
+
+  > strong {
+    // crossbrowsing
+  }
+}
+
+
+.imgAnchor {
+  display: block;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  box-shadow: 1px 5px 15px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  transition: 0.4s ease;
+}
+.imgAnchor:hover {
+  box-shadow: 1px 1px 30px rgba(0,0,0,.4);
+}
+
+.imageSect {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+}
+
+.work_cont {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+
+  p {
+    font-size: 15px;
+    text-align: justify;
+    font-family: $roboto;
+    height: 50px;
+  }
+
+  .workNum {
+    display: block;
+    text-align: right;
+    font-size: 55px;
+    color: #ccc;
+
+    > span {
+      border-bottom: 2px solid #ccc;
+    }
+  }
+}
+
+
 
 .viewMore{
   background: #0006ff;
@@ -72,108 +216,4 @@ h3.worksTit {
     text-align: center;
     font-size: 40px;
   }
-}
-
-$roboto : "'Roboto', sans-serif";
-
-.workLists {
-  li {
-    margin: 0 10.52%;
-    margin-bottom: 130px;
-    width: 78.96%;
-
-    &:after {
-      content: '';
-      clear: both;
-      display: block;
-    }
-
-    > a {
-      float: left;
-    }
-
-    > .work_cont {
-      float: left;
-      position: relative;
-      width: 39.05%;
-      height: 585px;
-
-      > a {
-        position: absolute;
-        display: block;
-        //bottom: 24px;
-        bottom: -100px;
-        opacity: 0;
-
-      }
-
-      p {
-        margin-top: 28px;
-        font-size: 20px;
-        width: 438px;
-        text-align: justify;
-        font-family: $roboto;
-      }
-    }
-  }
-}
-
-
-
-@for $i from 1 through 2 {
-  @if ($i % 2 == 0) {  // even
-    .workLists li:nth-of-type(#{$i}){
-      //background: red;
-
-      > .imgAnchor {
-        float: right;
-      }
-
-      .imageSect {
-        right: -80px;
-      }
-
-      > .work_cont {
-        a {
-          right: 24px;
-          text-align: right;
-        }
-
-        p {
-          text-align: right;
-        }
-      }
-    }
-  }
-  @else { // odd
-    .workLists li:nth-of-type(#{$i}){
-      //background: yellow;
-
-      .imageSect {
-        left: -80px;
-      }
-
-      > .work_cont a {
-        left: 24px;
-      }
-    }
-  }
-
-}
-
-
-.imgAnchor {
-  display: block;
-  width: 59.366%;
-  height: 585px;
-  position: relative;
-}
-
-.imageSect {
-  opacity: 0;
-  position: absolute;
-  top: 90px;
-  width: 100%;
-  height: 100%;
-  background: #f2f2f2;
 }
