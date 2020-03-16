@@ -123,37 +123,37 @@ function scrollAction() {
     // work 1 start
     if ( myscroll_m >= workoffsets[0] - 200 &&        // Start work1 ~ 1/2
          myscroll_m < workoffsets_2 / 2 - 200 ) {
-        anime(workAnimationGenerator(0, 0, true, 0));  // image
-        anime(workAnimationGenerator(0, 0, false, 3));  // work_titles
+        // anime(workAnimationGenerator(0, 0, true, 0));  // image
+        // anime(workAnimationGenerator(0, 0, false, 3));  // work_titles
     }
     else if (myscroll_m >= workoffsets_2 / 2 - 200 &&  // start work 1/2 ~ 2
              myscroll_m < workoffsets_2 - 200) {
-        anime(workAnimationGenerator(0, 1, true, 1));
-        anime(workAnimationGenerator(0, 1, false, 3));
+        // anime(workAnimationGenerator(0, 1, true, 1));
+        // anime(workAnimationGenerator(0, 1, false, 3));
     }
 
     // work 2 start
     else if (myscroll_m >= workoffsets_2 - 200 &&
             myscroll_m < workoffsets_math2 - 200) {    // Start work2 ~ 1/2
-        anime(workAnimationGenerator(1, 0, true, 0));
-        anime(workAnimationGenerator(1, 0, false, 3));
+        // anime(workAnimationGenerator(1, 0, true, 0));
+        // anime(workAnimationGenerator(1, 0, false, 3));
     }
     else if (myscroll_m >= workoffsets_math2 - 200 &&
             myscroll_m < workoffsets_3 - 200) {        // start work1/2 ~ 3
-        anime(workAnimationGenerator(1, 1, true, 1));
-        anime(workAnimationGenerator(1, 1, false, 3));
+        // anime(workAnimationGenerator(1, 1, true, 1));
+        // anime(workAnimationGenerator(1, 1, false, 3));
     }
 
     // work 3 start
     else if (myscroll_m >= workoffsets_3 - 200 &&
             myscroll_m < workoffsets_math3 - 200) {        // start work3 ~ 1/2
-        anime(workAnimationGenerator(2, 0, true, 0));
-        anime(workAnimationGenerator(2, 0, false, 3));
+        // anime(workAnimationGenerator(2, 0, true, 0));
+        // anime(workAnimationGenerator(2, 0, false, 3));
     }
     else if (myscroll_m >= workoffsets_math3 - 200 &&
             myscroll_m < aboutoffsets - 200) {        // start work1/2 ~ about
-        anime(workAnimationGenerator(2, 1, true, 1));
-        anime(workAnimationGenerator(2, 1, false, 3));
+        // anime(workAnimationGenerator(2, 1, true, 1));
+        // anime(workAnimationGenerator(2, 1, false, 3));
     }
     // works end
 
