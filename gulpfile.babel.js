@@ -37,6 +37,9 @@ const routes = {
     src: "src/js/main.js",
     dest: "build/js",
   },
+  viewMore_js: {
+    watch: "src/js/_viewmore.js"
+  },
   three: {
     src: "src/js/lib/*.js",
     dest: "build/js/lib",
@@ -229,8 +232,10 @@ const threeModule = () => {
 
 const watch = () => {
     gulp.watch(routes.pug.watch, index);
+    gulp.watch(routes.viewPage.watch, viewPage);
     gulp.watch(routes.portjs.watch, portjs);
     gulp.watch(routes.js.watch, js);
+    gulp.watch(routes.viewMore_js.watch, viewMore_js);
     gulp.watch(routes.styles.watch, styles);
     gulp.watch(routes.img.src, images);
 };
