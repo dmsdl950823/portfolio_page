@@ -45,11 +45,15 @@ function jsonapplier(data, param) {
         // let dataMap = [];
         const mapped_data = filtered_data.map(_data => {
 
+            console.log(_data)
             const largeimages = `<div>
                                     <a href="/" class="page_anchor" target="_blank">
                                         <img src="../images/${ _data.src }.jpg" alt=${ _data.id } />
                                     </a>
                                     <h3 class="largeTitle">${ _data.title }</h3>
+                                    <h4>${ _data.subtitle }</h4>
+                                    <div>${_data.browser}</div>
+                                    <div>${_data.contribution}</div>
                                 </div>`;
 
             const smallimages = `<div>
