@@ -102,4 +102,40 @@
   .sns p a{
     font-size: 12px;
   }
+
+  // viewPage
+  .slider-nav {
+    .draggable {
+      height: 120px;
+      width: 67%;
+    }
+  }
+
+  .page_anchor {
+    width: 60%;
+  }
+
+  .largeTitle {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+
+  .dataSubTit {
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+
+
+  .dataContribution_wrap {
+    width: 90%;
+  }
+  .smallTitle {
+    span {
+      font-size: 15px;
+    }
+  }
+
+// media end
 }

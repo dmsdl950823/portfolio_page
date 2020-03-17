@@ -222,7 +222,73 @@
   }
 
 
+  // viewPage
+  .slider-nav {
+    .draggable {
+      height: 170px;
+      width: 76%;
 
+      .slick-track {
+        .slick-slide {
+          border: 3px solid white;
+          margin: 15px 8px;
+        }
+      }
+    }
+  }
+
+  .data_contribution {
+    height: 80px;
+    overflow: hidden;
+    > p {
+      width: 33%;
+      float: left;
+      text-align: center;
+    }
+
+    span, strong {
+      display: block;
+    }
+
+    span {
+
+      &:before,
+      &:after {
+        top: -15px;
+        left: 12%;
+        height: 10px;
+      }
+    }
+  }
+
+  .page_anchor {
+    width: 50%;
+  }
+
+  .dataContribution_wrap {
+    width: 58%;
+  }
+
+  .data_desc,
+  .__data_desc {
+    font-size: 12px;
+  }
+
+  .browzer {
+    ul {
+      li {
+        font-size: 12px;
+        line-height: 2;
+      }
+    }
+  }
+
+
+  .smallTitle {
+    span {
+      font-size: 20px;
+    }
+  }
 
   // media end
 }
