@@ -237,6 +237,7 @@ const watch = () => {
     gulp.watch(routes.js.watch, js);
     gulp.watch(routes.viewMore_js.watch, viewMore_js);
     gulp.watch(routes.styles.watch, styles);
+    gulp.watch(routes.viewmoreCSS.src, viewmoreCSS);
     gulp.watch(routes.img.src, images);
 };
 
