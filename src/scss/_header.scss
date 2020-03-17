@@ -119,26 +119,25 @@ header {
   transform-style: preserve-3d;
   transform: translateY(0) rotateX(0) rotateY(0);
   position: relative;
-  transition: .2s ease;
+  transition: .7s ease;
 
   p {
     background-color: #fff;
     width: 100%;
     text-align: center;
     font-size: 35px;
-    height: 55px;
-    line-height: 55px;
+    height: 70px;
+    line-height: 70px;
     position: absolute;
     top:0;
     left:0;
-    transition: 2s ease;
   }
 }
 
 .front_  { transform:                  translateZ(1em); }
 .top_    { transform: rotateX( 90deg)  translateZ(1em); }
 .bottom_ { transform: rotateX(-90deg)  translateZ(1em); }
-.back_   { transform: rotateY(-180deg) translateZ(1em); }
+.back_   { transform: rotateY(-180deg) rotateZ(180deg) translateZ(1em); }
 
 
 .top {
