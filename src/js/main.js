@@ -1,5 +1,7 @@
 import { animation } from './_animation';
+import { mainRotation } from './_mainRotation';
 animation();
+mainRotation();
 
 // =========================
 
