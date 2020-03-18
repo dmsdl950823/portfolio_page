@@ -111,9 +111,10 @@
     font-size: 15px;
 
     > span {
-      &:before,
-      &:after {
-        left: 15px;
+      .graph_back {
+        height: 10px;
+        top: 25px;
+        left: 12px;
       }
     }
   }
@@ -133,19 +134,11 @@
   // about
 
   $mglft: 18.26%;
-  .profile {
-    margin-left: $mglft;
-    width: 71.58%;
-  }
-
   .profile_img {
-    width: 88.67%;
     height: 700px;
   }
 
   .profile_name {
-    width: 426px;
-
     strong{
       font-size: 70px;
     }
@@ -156,20 +149,16 @@
         bottom: 10px;
       }
       &:before {
-        right: -105px;
+        right: 190px;
         width: 9px;
         height: 9px;
       }
       &:after {
-        right: -80px;
+        right: 105px;
         width: 72px;
         height: 3px;
       }
     }
-  }
-
-  .desc {
-    margin-left: $mglft;
   }
 
   // footer

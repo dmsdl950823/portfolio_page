@@ -50,20 +50,10 @@
   }
 
 // about
-  .profile {
-    @include marg();
-    width: 71.96%;
-  }
 
   .profile_img {
     height: 740px;
-    width: 77.81%
   }
-
-  .desc {
-    @include marg();
-  }
-
 
 
 // footer

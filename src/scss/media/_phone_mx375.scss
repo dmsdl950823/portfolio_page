@@ -166,9 +166,8 @@
 
   .profile_name {
     width: 90%;
-    right: 0;
-    //bottom: -48px;
-    bottom: -88px;
+    right: 5%;
+    bottom: -20px;
     text-align: right;
 
     strong{
@@ -184,30 +183,31 @@
         bottom: -55px
       }
       &:before {
-        bottom: -75px;
-        right: -3px;
+        bottom: 5px;
+        right: 85px;
+        width: 5px;
+        height: 5px;
       }
       &:after {
-        right: 0;
-        width: 3px;
-        height: 45px;
+        display: none;
       }
     }
   }
 
   .desc {
-    margin-left: $mar;
     width: 80%;
-    margin-top: 80px;
 
     p {
-      font-size: 13px;
       width: 100%;
 
       &.Intro {
-        font-size: 25px;
-        //margin-bottom: 20px;
+        font-size: 20px;
       }
+    }
+
+    .career {
+      font-size: 8px;
+      margin-top: 12px;
     }
   }
 
@@ -269,6 +269,11 @@
 
     span {
       font-size: 10px;
+
+      .g_back {
+        top: -28px;
+        height: 10px;
+      }
     }
 
     strong {
