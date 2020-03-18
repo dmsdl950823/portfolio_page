@@ -71,6 +71,7 @@
 .data_contribution {
   height: 80px;
   overflow: hidden;
+
   > p {
     width: 33%;
     float: left;
@@ -176,9 +177,9 @@
       font-family: 'Roboto', sans-serif;
       width: 22%;
       height: 40px;
-      background-color: #0D90FF;
+      background-color: #ccc;
       color: #FFF;
-      line-height: 2;
+      line-height: 2.5;
       border-radius: 10px;
     }
   }

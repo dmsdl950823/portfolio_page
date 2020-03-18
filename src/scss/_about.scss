@@ -25,7 +25,7 @@
 }
 
 .profile_img {
-  background: #f2f2f2;
+  background: url("../images/untitled.png") center center / contain no-repeat;
   height: 747px;
   width: 100%;
 }
@@ -95,6 +95,9 @@
 
   .career {
     margin-top: 25px;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #888;
   }
 
 }
