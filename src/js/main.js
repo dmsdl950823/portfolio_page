@@ -15,6 +15,7 @@ const contrib = document.querySelector('.contrib');
 const designed = document.querySelector('.designed');
 const d_graph = document.querySelectorAll('.d_graph');
 const c_graph = document.querySelectorAll('.c_graph');
+const imgAnchor = document.querySelectorAll('.imgAnchor');
 
 
 function addListner(element, type, handler) {
@@ -48,6 +49,7 @@ function data_Event(data) {
 
     const contrib_g = contents.map(_data => _data.contribution);
     const design_g = contents.map(_data => _data.design);
+    const href = contents.map(_data => _data.href);
 
     for (let i = 0; i < c_graph.length; i++) {
         if (c_graph[i] !== undefined) {
@@ -61,6 +63,12 @@ function data_Event(data) {
         }
     }
 
+    for (let i = 0; i < imgAnchor.length; i++) {
+        if (imgAnchor[i] !== undefined) {
+            imgAnchor[i].setAttribute('href', href[i]);
+            imgAnchor[i].setAttribute('target', '_blank');
+        }
+    }
 
     addListner(lanBtn, 'click', (event) => {
         const about_data = data.filter(_filter => _filter.contribution === null);
