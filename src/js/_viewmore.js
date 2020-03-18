@@ -80,7 +80,7 @@ function jsonapplier(data, param, title_param) {
                                 <span>
                                     ${_data.participate} %
                                     <small class="g_back">
-                                        <i class="graph"></i>
+                                        <i class="graph" style="width: ${_data.design}%"></i>
                                     </small>
                                 </span>
                             </p>
@@ -89,7 +89,7 @@ function jsonapplier(data, param, title_param) {
                                 <span>
                                     ${_data.coding} %
                                     <small class="g_back">
-                                        <i class="graph"></i>
+                                        <i class="graph" style="width: ${_data.design}%"></i>
                                     </small>
                                 </span>
                             </p>
@@ -98,7 +98,7 @@ function jsonapplier(data, param, title_param) {
                                 <span>
                                     ${_data.design} %
                                     <small class="g_back">
-                                        <i class="graph"></i>
+                                        <i class="graph" style="width: ${_data.design}%"></i>
                                     </small>
                                 </span>
                             </p>
@@ -122,7 +122,7 @@ function jsonapplier(data, param, title_param) {
                                 <span>
                                     ${_data.participate}%
                                     <small class="g_back">
-                                        <i class="graph"></i>
+                                        <i class="graph" style="width: ${_data.design}%"></i>
                                     </small>
                                 </span>
                             </p>
@@ -131,7 +131,7 @@ function jsonapplier(data, param, title_param) {
                                 <span>
                                     ${_data.design} %
                                     <small class="g_back">
-                                        <i class="graph"></i>
+                                        <i class="graph" style="width: ${_data.design}%"></i>
                                     </small>
                                 </span>
                             </p>
@@ -144,16 +144,19 @@ function jsonapplier(data, param, title_param) {
 
 
             const top_slide = `<div>
-                                    <a href="/" class="page_anchor" target="_blank">
-                                        <img src="../images/${ _data.img_src }.jpg" alt=${ _data.id } />
+                                    <a href="${_data.href}" class="page_anchor" target="_blank">
+                                        <img src="../images/${ _data.img_src }" alt=${ _data.id } />
                                     </a>
                                     <h3 class="largeTitle">${ _data.title }</h3>
                                     <h4 class="dataSubTit">${ _data.subtitle }</h4>
                                     ${webData}
                                 </div>`;
 
-            const bottom_slide = `<div>
-                                    <img src="../images/${ _data.img_src }.jpg" alt=${ _data.id } />
+            const bottom_slide = `<div 
+                                    style="
+                                    background: url(../images/${_data.img_src}) center center / contain no-repeat;
+                                    ">
+                                    <img src="../images/width_image.jpg" style="opacity: 0"/>
                                     <p class="smallTitle"><span>${_data.title}</span></p>
                                 </div>`;
 
@@ -162,15 +165,12 @@ function jsonapplier(data, param, title_param) {
             $('.slider-for').slick('slickAdd', top_slide);
             $('.slider-nav').slick('slickAdd', bottom_slide);
         });
-
-
     });
 
-
-
-    // console.log(data)
 }
 
 
 jsonLoad();
+
+
 
