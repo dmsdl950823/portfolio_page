@@ -27,11 +27,6 @@ const routes = {
     src: "src/templetes/viewPage.pug",
     dest: "build",
   },
-  portjs: {
-    watch: "src/js/libs/*.js",
-    src: "src/js/_portPage.js",
-    dest: "build/js",
-  },
   js: {
     watch: "src/js/*.js",
     src: "src/js/main.js",
@@ -143,20 +138,6 @@ const viewmoreCSS = () => {
   return scssGenerator(src, dest);
 };
 
-const portjs = () => {
-  return gulp
-    .src(routes.portjs.src)
-    .pipe(
-      bro({
-        transform: [
-          babelify.configure({ presets: ["@babel/preset-env"] }),
-          ["uglifyify", { global: true }],
-        ],
-      })
-    )
-    .pipe(gulp.dest(routes.portjs.dest));
-};
-
 const js = () => {
   return gulp
     .src(routes.js.src)
@@ -207,7 +188,18 @@ const Jquery_migrate = () => {
 const viewMore_js = () => {
     var src = 'src/js/_viewmore.js';
     var build = 'build/js';
-    return including(src, build);
+
+    return gulp
+    .src(src)
+    .pipe(
+      bro({
+        transform: [
+          babelify.configure({ presets: ["@babel/preset-env"] }),
+          ["uglifyify", { global: true }],
+        ],
+      })
+    )
+    .pipe(gulp.dest(build));
 };
 
 const fonts = () => {
@@ -233,7 +225,6 @@ const threeModule = () => {
 const watch = () => {
     gulp.watch(routes.pug.watch, index);
     gulp.watch(routes.viewPage.watch, viewPage);
-    gulp.watch(routes.portjs.watch, portjs);
     gulp.watch(routes.js.watch, js);
     gulp.watch(routes.viewMore_js.watch, viewMore_js);
     gulp.watch(routes.styles.watch, styles);
