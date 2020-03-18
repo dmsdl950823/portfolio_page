@@ -1,7 +1,10 @@
-[{"id":1,"title":"Responsive Web","desc_eng":"this is responsiv1","desc_kor":"리스판십"},
-{"id":2,"title":"Mobile","desc_eng":"this is mobile","desc_kor":"몹아일"},
-{"id":3,"title":"css animation1","desc_eng":"this is css animation1","desc_kor":"애니메이션1"},
-{"id":4,"title":"css animation2","desc_eng":"this is css animation2","desc_kor":"애니2"},
-{"id":5,"title":"c4d_1","desc_eng":"this is c4d_1","desc_kor":"씨사디1"},
-{"id":6,"title":"ced_2","desc_eng":"this is c4d_2","desc_kor":"씨사디2"},
-{"id":7,"title":"","desc_eng":"Hi, I'm Jenny and.. blahblahblahworking(add new pages by using js framework), career,","desc_kor":"안여하세요 재닙니다 그리고..blahblahblahworking(add new pages by using js framework), career,"}]
+[{"id":1,"desc_eng":"this is React","desc_kor":"리액트","contribution":100,"design":100,"cross_b":"ie2+, chrome+, opera"},
+{"id":2,"desc_eng":"soripansorppan","desc_kor":"소리판","contribution":80,"design":60,"cross_b":"ie3+, chrome+, safari"},
+{"id":3,"desc_eng":"this is mobile","desc_kor":"몹아일","contribution":100,"design":100,"cross_b":"ie4+, chrome+, chrome, safari"},
+{"id":4,"desc_eng":"this is css animation1","desc_kor":"애니메이션1","contribution":100,"design":100,"cross_b":""},
+{"id":5,"desc_eng":"this is css animation2","desc_kor":"애니2","contribution":100,"design":100,"cross_b":""},
+{"id":6,"desc_eng":"this is css animation3","desc_kor":"애니3","contribution":100,"design":100,"cross_b":""},
+{"id":7,"desc_eng":"this is c4d_1","desc_kor":"씨사디1","contribution":100,"design":100,"cross_b":""},
+{"id":8,"desc_eng":"this is c4d_2","desc_kor":"씨사디2","contribution":100,"design":100,"cross_b":""},
+{"id":9,"desc_eng":"this is c4d_3","desc_kor":"씨사디3","contribution":100,"design":100,"cross_b":""},
+{"id":10,"desc_eng":"Hi, I'm Jenny and.. blahblahblahworking(add new pages by using js framework), career,","desc_kor":"안여하세요 재닙니다 그리고..blahblahblahworking(add new pages by using js framework), 커리어","contribution":null,"design":null,"cross_b":""}]
