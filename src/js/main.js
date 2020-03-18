@@ -3,14 +3,18 @@ import { mainRotation } from './_mainRotation';
 animation();
 mainRotation();
 
-// =========================
+
 
 // === Language button ===
 const lanBtn = document.getElementById('language');
 const imageSects = document.querySelectorAll('.imageSect');
 const work_cont_strong = document.querySelectorAll('.work_cont strong');
 const work_cont_p = document.querySelectorAll('.work_cont p');
-const about_desc = document.querySelector('.desc');
+const about_desc = document.querySelector('.career');
+const contrib = document.querySelector('.contrib');
+const designed = document.querySelector('.designed');
+const d_graph = document.querySelectorAll('.d_graph');
+const c_graph = document.querySelectorAll('.c_graph');
 
 
 function addListner(element, type, handler) {
@@ -28,7 +32,7 @@ function jsonLoad() {
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             const data = JSON.parse(this.responseText);
-            // const param = parseInt(window.location.hash.replace('#', ''));
+            // console.log(data)
             data_Event(data)
         }
     };
@@ -39,9 +43,27 @@ function jsonLoad() {
 
 
 function data_Event(data) {
+
+    const contents = data.filter(_filter => _filter.contribution !== null);
+
+    const contrib_g = contents.map(_data => _data.contribution);
+    const design_g = contents.map(_data => _data.design);
+
+    for (let i = 0; i < c_graph.length; i++) {
+        if (c_graph[i] !== undefined) {
+            c_graph[i].style.width = contrib_g[i] + '%';
+        }
+    }
+
+    for (let i = 0; i < d_graph.length; i++) {
+        if (d_graph[i] !== undefined) {
+            d_graph[i].style.width = design_g[i] + '%';
+        }
+    }
+
+
     addListner(lanBtn, 'click', (event) => {
-        const contents = data.filter(_filter => _filter.title);
-        const about_data = data.filter(_filter => _filter.title === '');
+        const about_data = data.filter(_filter => _filter.contribution === null);
 
         const dataMap_eng = contents.map(_data => _data.desc_eng);
         const dataMap_kor = contents.map(_data => _data.desc_kor);
@@ -54,26 +76,29 @@ function data_Event(data) {
         if (!lanchecked) {
             // English
             console.log('click true');
-            checkedEvent(dataMap_eng, about_eng);
+            checkedEvent(dataMap_kor, about_kor);
         } else {
             // Korean
             console.log('click false');
-            checkedEvent(dataMap_kor, about_kor);
+            checkedEvent(dataMap_eng, about_eng);
         }
+
     });
 }
 
-function checkedEvent(dataMap, about) {
-    for (let i = 0; i < work_cont_strong.length; i++) {
-        // console.log(work_cont_strong[i]
-        // console.log(work_cont_p[i])
 
+
+
+function checkedEvent(dataMap, about) {
+
+    for (let i = 0; i < work_cont_strong.length; i++) {
         if (work_cont_p[i] !== undefined) {
             work_cont_p[i].innerHTML = dataMap[i];
         }
     }
-    about_desc.innerHTML = about[0]
+    about_desc.innerHTML = about[0];
 }
+
 
 function backimages() {
     for (let i = 0; i < imageSects.length; i++ ) {
