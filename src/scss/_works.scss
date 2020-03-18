@@ -109,6 +109,12 @@ $roboto : "'Roboto', sans-serif";
   height: 100px;
 }
 
+@mixin graph() {
+  border-radius: 15px;
+  position: absolute;
+  display: block;
+}
+
 .contribution {
   font-size: 18px;
   color: #ccc;
@@ -124,29 +130,23 @@ $roboto : "'Roboto', sans-serif";
     text-align: center;
     position: relative;
 
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
+    .graph_back {
+      @include graph;
+      width: 80%;
+      background-color: #eaf6ff;
       height: 12px;
-      border-radius: 15px;
       top: 30px;
       left: 20px;
     }
 
-    &:before{
-      background-color: #eaf6ff;
-      width: 80%;
-    }
-    &:after {
+    i {
+      @include graph;
       background-color: #0D90FF;
+      height: 100%;
+      top: 0;
+      left: 0;
       width: 70%;
     }
-  }
-
-  > strong {
-    // crossbrowsing
   }
 }
 

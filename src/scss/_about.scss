@@ -19,28 +19,27 @@
 }
 
 .profile {
-  @include marg();
+  margin: 0 auto;
   position: relative;
-  width: 48.13%;
+  width: 50%;
 }
 
 .profile_img {
   background: #f2f2f2;
   height: 747px;
-  width: 779px;
+  width: 100%;
 }
 
 .profile_name {
   position: absolute;
   bottom: 0;
   opacity: 0;
-  //bottom: 60px;
-  right: 0;
+  right: 5%;
+  text-align: right;
   width: 486px;
   color: #0006ff;
 
   @mixin profile($size) {
-    //width: 100%;
     font-size: $size;
   }
 
@@ -61,13 +60,13 @@
       bottom: 10px;
     }
     &:before {
-      right: -125px;
+      right: 230px;
       width: 11px;
       height: 11px;
       border-radius: 50%;
     }
     &:after {
-      right: -100px;
+      right: 125px;
       width: 92px;
       height: 3px;
     }
@@ -76,10 +75,11 @@
 }
 
 .desc {
-  @include marg();
-  margin-top: 40px;
-  width: 22.81%;
+  width: 50%;
   height: 150px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
 
   p {
     font-family: 'Roboto', sans-serif;
@@ -88,9 +88,13 @@
     &.Intro {
       color: #0006ff;
       font-size: 30px;
-      margin-bottom: 20px;
+      //margin-bottom: 20px;
       font-family: inherit;
     }
+  }
+
+  .career {
+    margin-top: 25px;
   }
 
 }
