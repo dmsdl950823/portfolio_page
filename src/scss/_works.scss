@@ -182,8 +182,8 @@ $roboto : "'Roboto', sans-serif";
   box-sizing: border-box;
 
   p {
+    line-height: 1.2;
     font-size: 15px;
-    text-align: justify;
     font-family: $roboto;
     height: 50px;
   }
