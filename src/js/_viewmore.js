@@ -104,7 +104,7 @@ function jsonapplier(data, param, title_param) {
                             </p>
                         </div>
                         <div class="desc_brwz_wrap">
-                            <p class="data_desc">${_data.description}</p>
+                            <p class="data_desc">${_data.description_eng}</p>
                             <div class="browzer">
                                 <strong>CrossBrowser</strong>
                                 <ul>
@@ -137,7 +137,7 @@ function jsonapplier(data, param, title_param) {
                             </p>
                         </div>
                         <div class="desc_brwz_wrap __desc_brwz_wrap">
-                            <p class="__data_desc">${_data.description}</p>
+                            <p class="__data_desc">${_data.description_eng}</p>
                         </div>
                     </div>`;
             }
