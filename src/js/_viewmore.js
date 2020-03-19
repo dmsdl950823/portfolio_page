@@ -168,8 +168,6 @@ function jsonapplier(data, param, title_param) {
                                     style="${backImageSet(_data.img_src)}"
                                     >
                                         ${ImageSet(_data.img_src)}
-                                    <!--style="background: #fff url(../images/${_data.img_src}) center center / contain no-repeat;"-->
-                                        <!--<img src="../images/${ _data.img_src }" alt=${ _data.id } />-->
                                     </a>
                                     <h3 class="largeTitle">${ _data.title }</h3>
                                     <h4 class="dataSubTit">${ _data.subtitle }</h4>
