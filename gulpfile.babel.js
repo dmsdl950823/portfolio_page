@@ -10,7 +10,7 @@ import miniCSS from "gulp-csso";
 import image from "gulp-image";
 import gulpFont from 'gulp-font';
 import include from 'gulp-include';
-
+import ghPages from 'gulp-gh-pages';
 
 
 
@@ -59,6 +59,10 @@ const routes = {
   img: {
     src: "src/images/*",
     dest: "build/images"
+  },
+  font: {
+      src: 'src/fonts/*.ttf',
+      dest: 'build/fonts',
   }
 };
 
@@ -203,8 +207,8 @@ const viewMore_js = () => {
 };
 
 const fonts = () => {
-    var src = 'src/fonts/*.ttf';
-    var build = 'build/fonts';
+    var src = routes.font.src;
+    var build = routes.font.dest;
     return including(src, build);
 };
 
@@ -230,6 +234,12 @@ const watch = () => {
     gulp.watch(routes.styles.watch, styles);
     gulp.watch(routes.viewmoreCSS.src, viewmoreCSS);
     gulp.watch(routes.img.src, images);
+    gulp.watch(routes.font.src, fonts);
+};
+
+const gh = () => {
+    return gulp.src('build/**/*')
+        .pipe(ghPages())
 };
 
 // render
@@ -239,4 +249,6 @@ const styleSheets = gulp.series([styles, viewmoreCSS, slick]);
 const javascripts = gulp.parallel([js, json, slickminJS, Jquery, Jquery_migrate, viewMore_js]);
 const live = gulp.parallel([watch, webserver]);
 
-export const dev = gulp.series([prepare, assets,styleSheets, javascripts, live]);
+export const build = gulp.series([prepare, assets,styleSheets, javascripts]);
+export const dev = gulp.series([build, live]);
+export const deploy = gulp.series([build, gh]);
