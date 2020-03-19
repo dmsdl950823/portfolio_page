@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow|Fugaz+One|Jura&display=swap');
+
 .red {
   border: 1px solid red;
 }
@@ -9,14 +11,23 @@
 @font-face {
     font-family:'Athena-Regular';
     font-weight:400;
-    src: url('../fonts/Athena-Regular.ttf');
-    //src: url('font/NanumGothic.eot?#iefix') format('embedded-opentype'),
-    src: url('../fonts/Athena-Regular.ttf') format('woff'),
-		 url('../fonts/Athena-Regular.ttf') format('truetype');
+    src: url('../fonts/Athena-Regular.ttf') format('truetype'),
+         url('../fonts/Kocka-PersonalUse.otf') format("opentype");
+}
+
+@font-face {
+    font-family:'kocka-personal';
+    font-weight:400;
+    src: url('../fonts/kocka-personaluse-webfont.woff') format('woff'),
+         url('../fonts/kocka-personaluse-webfont.woff2') format("woff2");
 }
 
 body {
-  font-family: Athena-Regular;
+  //font-family: 'Barlow Semi Condensed', sans-serif;
+  //font-family: 'Jura', sans-serif;
+  //font-weight: bold;
+
+  font-family: 'Fugaz One', cursive;
 }
 
 body::-moz-selection {

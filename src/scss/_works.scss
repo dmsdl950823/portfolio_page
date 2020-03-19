@@ -8,6 +8,8 @@
   }
 }
 
+$roboto : "'Roboto', sans-serif";
+
 h3.worksTit {
   color: #0006ff;
   font-size: 70px;
@@ -50,7 +52,7 @@ h3.worksTit {
   margin-bottom: 60px;
 }
 
-$roboto : "'Roboto', sans-serif";
+
 
 .workLists {
   display: flex;
@@ -107,6 +109,7 @@ $roboto : "'Roboto', sans-serif";
   width: 100%;
   position: relative;
   height: 100px;
+  font-family: $roboto;
 }
 
 @mixin graph() {
