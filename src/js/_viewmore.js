@@ -26,7 +26,6 @@ function jsonapplier(data, param, title_param) {
     // Insert subTitle
     const subTitle = document.getElementById('subTitle');
     subTitle.innerHTML = title_param;
-
     const matchMedia = window.matchMedia("(max-width: 375px)").matches;
 
     // filtering data with type
@@ -70,6 +69,29 @@ function jsonapplier(data, param, title_param) {
                 }
             };
 
+            function imageHeightSet() {
+                if (title_param === 'C4D Work' && _data.work_type === 1){
+                    return 'image_height'
+                } else {
+                    return '';
+                }
+            }
+
+            function backImageSet(img_src) {
+                if (title_param === 'C4D Work' && _data.work_type === 1){
+                    return 'background: #fff url(../images/' + img_src + ') center center / contain no-repeat;'
+                } else {
+                    return '';
+                }
+            }
+
+            function ImageSet(img_src) {
+                if (!(title_param === 'C4D Work' && _data.work_type === 1)) {
+                    return '<img src="../images/' + img_src + '" alt=${ _data.id } />';
+                } else {
+                    return '';
+                }
+            }
 
             if (title_param === 'Web Page') {
                 webData = `
@@ -144,15 +166,19 @@ function jsonapplier(data, param, title_param) {
 
 
             const top_slide = `<div>
-                                    <a href="${_data.href}" class="page_anchor" target="_blank">
-                                        <img src="../images/${ _data.img_src }" alt=${ _data.id } />
+                                    <a href="${_data.href}" target="_blank" class="page_anchor ${imageHeightSet()}"
+                                    style="${backImageSet(_data.img_src)}"
+                                    >
+                                        ${ImageSet(_data.img_src)}
+                                    <!--style="background: #fff url(../images/${_data.img_src}) center center / contain no-repeat;"-->
+                                        <!--<img src="../images/${ _data.img_src }" alt=${ _data.id } />-->
                                     </a>
                                     <h3 class="largeTitle">${ _data.title }</h3>
                                     <h4 class="dataSubTit">${ _data.subtitle }</h4>
                                     ${webData}
                                 </div>`;
 
-            const bottom_slide = `<div 
+            const bottom_slide = `<div
                                     style="
                                     background: url(../images/${_data.img_src}) center center / contain no-repeat;
                                     ">
@@ -165,7 +191,15 @@ function jsonapplier(data, param, title_param) {
             $('.slider-for').slick('slickAdd', top_slide);
             $('.slider-nav').slick('slickAdd', bottom_slide);
         });
+
+        const image_height = document.querySelectorAll('.image_height');
+        for (let i = 0; i < image_height.length; i++){
+            const widthStyle = window.getComputedStyle(image_height[i]).width;
+            image_height[i].style.height = widthStyle;
+        }
     });
+
+
 
 }
 
