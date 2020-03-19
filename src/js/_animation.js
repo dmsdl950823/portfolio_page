@@ -7,6 +7,8 @@ const workdiv = document.querySelectorAll('.workdiv');
 const about_sect = document.getElementById('about');
 const quer = document.querySelectorAll('.workLists');
 const TOP = document.getElementById('top');
+const header = document.getElementById('header');
+const header_menu = document.getElementById('header_menu');
 
 var aboutquery = window.matchMedia("(max-width: 375px)")
 
@@ -115,8 +117,13 @@ function scrollAction() {
             duration: 300
         });
 
+        header.style.marginTop = '86px';
+        header_menu.style.position = 'fixed';
+
     } else {
         TOP.style.opacity = 0;
+        header.style.marginTop = '0';
+        header_menu.style.position = '';
     }
     // header end
 
