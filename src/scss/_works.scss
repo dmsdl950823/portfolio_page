@@ -132,7 +132,7 @@ $roboto : "'Roboto', sans-serif";
 
     .graph_back {
       @include graph;
-      width: 80%;
+      width: 75%;
       background-color: #eaf6ff;
       height: 12px;
       top: 30px;
@@ -145,7 +145,26 @@ $roboto : "'Roboto', sans-serif";
       height: 100%;
       top: 0;
       left: 0;
-      width: 70%;
+      width: 7%;
+    }
+  }
+
+  .crossbrwz {
+    height: 100%;
+    .crossbrwz_list {
+      @include graph;
+      background-color: #f2f2f2;
+      width: 100%;
+      height: 30px;
+      color: #666666;
+      font-size: 12px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      line-height: 2.5;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      top: 25px;
     }
   }
 }

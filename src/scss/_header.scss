@@ -77,17 +77,38 @@ header {
   background-color: #eaf6ff;
 }
 
+@mixin positionAbs() {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  line-height: 2.2;
+}
+.lan_en,
+.lan_kr{
+  @include positionAbs();
+  color: #777;
+}
+
+$loc: 15%;
+.lan_en{
+  left: $loc;
+}
+.lan_kr{
+  right: $loc;
+}
+
 .slider {
   z-index: 2;
   border-radius: 20px;
-  position: absolute;
   transition: 0.5s ease;
   display: block;
   width: 50%;
-  height: 100%;
-  top: 0;
+  @include positionAbs();
   left: 0;
   background-color: #0006ff;
+  text-align: center;
+  color: transparent;
+  font-size: 0;
 }
 
 .lanCheck {

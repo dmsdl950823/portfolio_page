@@ -38,6 +38,21 @@
     width: $gird;
     height: 30px;
   }
+
+  .lan_en,
+  .lan_kr{
+    line-height: 2.4;
+    font-size: 12px;
+  }
+
+  $loc: 10%;
+  .lan_en{
+    left: $loc;
+  }
+  .lan_kr{
+    right: $loc;
+  }
+
   .slider {
     border-radius: 50%;
   }
@@ -101,6 +116,15 @@
       }
     }
 
+    .crossbrwz {
+      .crossbrwz_list {
+        height: 15px;
+        font-size: 8px;
+        line-height: 1.9;
+        top: 20px;
+      }
+    }
+
   }
 
 
@@ -137,7 +161,12 @@
       width: 100%;
       height: $imgHeight;
     }
+  }
 
+  .work_cont {
+    p {
+      font-size: 10px;
+    }
   }
 
 
