@@ -4,9 +4,8 @@ function jsonLoad() {
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             try {
-                const data = JSON.parse(this.responseText);
+                const data = JSON.parse(this.responseText).reverse();
                 const param = parseInt(window.location.hash.replace('#', ''));
-                // console.log(data)
                 const title_param = decodeURI(window.location.hash).split('#')[2];
                 jsonapplier(data, param, title_param);
             } catch (e) {
@@ -21,8 +20,6 @@ function jsonLoad() {
 function jsonapplier(data, param, title_param) {
     let types = param;
 
-    console.log(data);
-
     // Insert subTitle
     const subTitle = document.getElementById('subTitle');
     subTitle.innerHTML = title_param;
@@ -30,6 +27,7 @@ function jsonapplier(data, param, title_param) {
 
     // filtering data with type
     const filtered_data = data.filter(_data => _data.work_type === types);
+    // console.log(filtered_data.reverse())
 
     $(document).ready(function(){
         // slider
