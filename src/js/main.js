@@ -11,11 +11,10 @@ const imageSects = document.querySelectorAll('.imageSect');
 const work_cont_strong = document.querySelectorAll('.work_cont strong');
 const work_cont_p = document.querySelectorAll('.work_cont p');
 const about_desc = document.querySelector('.career');
-const contrib = document.querySelector('.contrib');
-const designed = document.querySelector('.designed');
 const d_graph = document.querySelectorAll('.d_graph');
 const c_graph = document.querySelectorAll('.c_graph');
 const imgAnchor = document.querySelectorAll('.imgAnchor');
+const crossbrwz_list = document.querySelectorAll('.crossbrwz_list');
 
 
 function addListner(element, type, handler) {
@@ -50,6 +49,7 @@ function data_Event(data) {
     const contrib_g = contents.map(_data => _data.contribution);
     const design_g = contents.map(_data => _data.design);
     const href = contents.map(_data => _data.href);
+    const cross_b = contents.map(_data => _data.cross_b);
 
     for (let i = 0; i < c_graph.length; i++) {
         if (c_graph[i] !== undefined) {
@@ -68,6 +68,14 @@ function data_Event(data) {
             imgAnchor[i].setAttribute('href', href[i]);
             imgAnchor[i].setAttribute('target', '_blank');
         }
+    }
+
+    for (let i = 0; i < crossbrwz_list.length; i++) {
+        crossbrwz_list[i].innerHTML = `
+        ${cross_b[i]}
+        `;
+        console.log(cross_b[i]);
+
     }
 
     addListner(lanBtn, 'click', (event) => {
