@@ -71,10 +71,7 @@ function data_Event(data) {
     }
 
     for (let i = 0; i < crossbrwz_list.length; i++) {
-        crossbrwz_list[i].innerHTML = `
-        ${cross_b[i]}
-        `;
-        console.log(cross_b[i]);
+        crossbrwz_list[i].innerHTML = `${cross_b[i]}`;
 
     }
 
