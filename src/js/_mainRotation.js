@@ -41,6 +41,5 @@ export const mainRotation = () => {
             translateY(${ transY }px) 
             rotateX(${ rotate }deg)
         `;
-
     })
 };
