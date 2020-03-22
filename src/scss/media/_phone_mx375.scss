@@ -69,11 +69,22 @@
     }
   }
 
+  .quote {
+    width: 100%;
+    right: 0;
+  }
 
-  .cube {
-    p {
-      font-size: 18px;
+  .phrase {
+
+    text-align: center;
+    margin-top: 50vh;
+    span {
+      line-height: 1.2;
     }
+  }
+
+  .quote_descript {
+    text-align: center;
   }
 
 

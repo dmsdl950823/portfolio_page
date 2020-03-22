@@ -5,9 +5,17 @@
   top: 0;
   left: 0;
   z-index: -2;
-  display: block;
   width: 100%;
-  height: 100%;
+  //height: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  display: block;
+  opacity: 0.2;
 }
 
 #header {
@@ -135,37 +143,29 @@ $loc: 15%;
 
 
 .quote {
-  margin-top: 50vh;
-  height: 55px;
-  perspective: 1100em;
+  width: 30%;
+  height: 80vh;
   overflow: hidden;
-  color: #0006ff;
+  //border: 1px solid red;
+  position: absolute;
+  top:0; right: 12vw;
 }
 
-.cube {
-  transform-style: preserve-3d;
-  transform: translateY(0) rotateX(0) rotateY(0);
-  position: relative;
-  transition: .7s ease;
-
-  p {
-    background-color: #fff;
-    width: 100%;
-    text-align: center;
-    font-size: 35px;
-    height: 70px;
-    line-height: 70px;
-    position: absolute;
-    top:0;
-    left:0;
+.phrase {
+  margin-top: 38vh;
+  color: #FFF;
+  font-size: 4.2em;
+  span {
+    background-color: #0006ff;
+    line-height: 1.2;
   }
 }
 
-.front_  { transform:                  translateZ(1em); }
-.top_    { transform: rotateX( 90deg)  translateZ(1em); }
-.bottom_ { transform: rotateX(-90deg)  translateZ(1em); }
-.back_   { transform: rotateY(-180deg) rotateZ(180deg) translateZ(1em); }
-
+.quote_descript {
+  margin-top: 5vh;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
 
 .top {
   z-index: 9999;
