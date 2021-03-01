@@ -93,7 +93,7 @@ const webserver = () => {
     ws({
       livereload: true,
       open: true,
-      host: "192.168.219.104",
+      // host: 'localhost',
       port: 8000,
     })
   );
@@ -247,6 +247,7 @@ const prepare = gulp.series([clean, images]);
 const assets = gulp.series([index, viewPage, fonts]); // fonts
 const styleSheets = gulp.series([styles, viewmoreCSS, slick]);
 const javascripts = gulp.parallel([js, json, slickminJS, Jquery, Jquery_migrate, viewMore_js]);
+// const live = gulp.parallel([watch]);
 const live = gulp.parallel([watch, webserver]);
 
 export const build = gulp.series([prepare, assets,styleSheets, javascripts]);
